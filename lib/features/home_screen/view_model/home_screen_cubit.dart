@@ -1,5 +1,5 @@
-import 'package:accounting/features/accounting/view/screens/accounts_grid_view_commponent.dart';
 import 'package:accounting/features/accounting/view/screens/daily_restrictions.dart';
+import 'package:accounting/features/home_screen/view/screens/control_board.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -20,7 +20,7 @@ class HomeScreenCubit extends Cubit<HomeScreenState> {
   int currentIndex = 0;
 
   List<Widget> screen = [
-    const AccountsGridViewComponent(),
+    const ControlBoardScreen(),
     const DailyRestrictionsScreen(),
     // const FavoritesScreen(),
   ];

@@ -26,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
           body: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              if (Responsive.isDesktop(context) || Responsive.isTablet(context))
+              if (Responsive.isDesktop(context))
                 if (HomeScreenCubit
                   .get(context)
                   .openSide) sideMenu(context),

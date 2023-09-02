@@ -1,6 +1,4 @@
-import 'package:accounting/core/functions/navigator.dart';
 import 'package:accounting/core/utils/color_manager.dart';
-import 'package:accounting/core/utils/routes_manager.dart';
 import 'package:flutter/material.dart';
 
 class DailyRestrictionsScreen extends StatelessWidget {
@@ -21,7 +19,6 @@ class DailyRestrictionsScreen extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: IconButton(
                   onPressed: () {
-                    navigateTo(context, Routes.ddddd);
                   },
                   icon: const Icon(Icons.deck_sharp)),
             ),

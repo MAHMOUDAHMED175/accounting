@@ -4,7 +4,8 @@
 
 
 
-import 'package:accounting/core/utils/color_manager.dart';
+import 'package:accounting/core/utils/values_manager.dart';
+import 'package:accounting/features/accounting/view/widgets/grid_view_accounts_widgets/grid_view_Accounts.dart';
 import 'package:flutter/material.dart';
 
 class AccountsGridViewComponent extends StatelessWidget {
@@ -12,32 +13,17 @@ class AccountsGridViewComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Container(
-      color: ColorManager.gridViewIconColor,
-      child:Row(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: IconButton(onPressed: (){}, icon: const Icon(Icons.camera)),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: IconButton(onPressed: (){}, icon: const Icon(Icons.camera)),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: IconButton(onPressed: (){}, icon: const Icon(Icons.camera)),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: IconButton(onPressed: (){}, icon: const Icon(Icons.camera)),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: IconButton(onPressed: (){}, icon: const Icon(Icons.camera)),
-          ),
-        ],
-      ) ,
+    return  const Padding(
+      padding: EdgeInsets.all(AppPadding.p28),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+                height: AppSize.s500,
+                child: GridViewWidgetAccounts())
+          ],
+        ),
+      ),
     );
   }
 }
