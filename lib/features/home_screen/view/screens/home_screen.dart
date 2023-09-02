@@ -1,6 +1,6 @@
-import 'package:accounting/core/utils/color_manager.dart';
 import 'package:accounting/core/utils/responsive.dart';
-import 'package:accounting/features/home_screen/view/widgets/side_menu.dart';
+import 'package:accounting/features/home_screen/view/screens/content_screens.dart';
+import 'package:accounting/features/home_screen/view/widgets/side_menu_widgets/side_menu.dart';
 import 'package:accounting/features/home_screen/view_model/home_screen_cubit.dart';
 import 'package:accounting/features/home_screen/view_model/home_screen_state.dart';
 import 'package:flutter/material.dart';
@@ -34,14 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Column(
                   children: [
                     const HeaderHomeScreen(),
-                    Expanded(
-                      child: Container(
-                        color: ColorManager.grey300,
-                        child: const Center(
-                          child: Text('Content Screen'),
-                        ),
-                      ),
-                    ),
+                    Expanded(child: ContentGridViewScreens()),
                   ],
                 ),
               ),

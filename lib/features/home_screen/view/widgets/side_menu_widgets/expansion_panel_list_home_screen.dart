@@ -1,7 +1,8 @@
 import 'package:accounting/core/utils/color_manager.dart';
+import 'package:accounting/core/utils/strings_manager.dart';
 import 'package:accounting/core/utils/values_manager.dart';
 import 'package:accounting/features/home_screen/data/step_side_menu.dart';
-import 'package:accounting/features/home_screen/view/widgets/item_expansion_panel.dart';
+import 'package:accounting/features/home_screen/view/widgets/side_menu_widgets/item_expansion_panel.dart';
 import 'package:flutter/material.dart';
 
 class ExpansionPanelListHomeScreen extends StatefulWidget {
@@ -49,7 +50,7 @@ class _ExpansionPanelListHomeScreenState extends State<ExpansionPanelListHomeScr
               ),
             );
           },
-          body: itemsHeaderExpansionPanelList(step.title),
+          body: itemsHeaderExpansionPanelList(context,step.title),
           isExpanded: step.isExpanded,
         );
       }).toList(),
@@ -63,14 +64,14 @@ List<StepSideMenu> getSteps() {
       'لوحة التحكم',
       Icons.home,
     ),
-    StepSideMenu("الحسابات", Icons.payments_outlined),
-    StepSideMenu("ادارة المخزون", Icons.indeterminate_check_box_rounded),
-    StepSideMenu("المبيعات", Icons.event_note),
-    StepSideMenu("المشتريات", Icons.car_crash_outlined),
-    StepSideMenu("الانتاج", Icons.production_quantity_limits),
-    StepSideMenu("الموارد البشريه", Icons.h_mobiledata_rounded),
-    StepSideMenu("CRM", Icons.chrome_reader_mode_outlined),
-    StepSideMenu("المتجر الالكترونى", Icons.add_business_sharp),
-    StepSideMenu("الاعدادات", Icons.settings),
+    StepSideMenu(AppStrings.theAccounts, Icons.payments_outlined),
+    StepSideMenu(AppStrings.inventoryManagement, Icons.indeterminate_check_box_rounded),
+    StepSideMenu(AppStrings.sales, Icons.event_note),
+    StepSideMenu(AppStrings.purchases, Icons.car_crash_outlined),
+    StepSideMenu(AppStrings.production, Icons.production_quantity_limits),
+    StepSideMenu(AppStrings.HR, Icons.h_mobiledata_rounded),
+    StepSideMenu(AppStrings.CRM, Icons.chrome_reader_mode_outlined),
+    StepSideMenu(AppStrings.onlineStore, Icons.add_business_sharp),
+    StepSideMenu(AppStrings.settings, Icons.settings),
   ];
 }

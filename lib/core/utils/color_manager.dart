@@ -5,6 +5,7 @@ class ColorManager {
 
   //light
   static Color primary = Colors.grey[200]!;
+  static Color gridViewIconColor = Colors.green;
   static Color grey = const Color(0xff737477);
   static Color grey200 = Colors.grey[200]!;
   static Color grey300 = Colors.grey[300]!;

@@ -2,7 +2,9 @@
 import 'package:accounting/core/utils/color_manager.dart';
 import 'package:accounting/core/utils/strings_manager.dart';
 import 'package:accounting/core/utils/values_manager.dart';
-import 'package:accounting/features/home_screen/view/widgets/accounting_commponent.dart';
+import 'package:accounting/features/home_screen/view/widgets/side_menu_widgets/accounting_component.dart';
+import 'package:accounting/features/home_screen/view/widgets/side_menu_widgets/control_board_component.dart';
+import 'package:accounting/features/home_screen/view/widgets/side_menu_widgets/sales_component.dart';
 import 'package:flutter/material.dart';
 
 
@@ -29,16 +31,16 @@ Widget buildSubItem(String title, Function onTap) {
   );
 }
 
-Widget itemsHeaderExpansionPanelList(String title) {
+Widget itemsHeaderExpansionPanelList(context,String title) {
   switch (title) {
     case AppStrings.controlBoard:
-      return Container();
+      return controlBoardSubItems(context);
     case AppStrings.theAccounts:
-      return renderAccountingSubItems();
+      return accountingSubItems(context);
     case AppStrings.inventoryManagement:
       return Container();
-    case AppStrings.theSales:
-      return Container();
+    case AppStrings.sales:
+      return salesSubItems(context);
     case AppStrings.purchases:
       return Container();
     case AppStrings.production:
