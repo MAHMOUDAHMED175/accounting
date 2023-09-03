@@ -23,7 +23,8 @@ class _HomeScreenState extends State<HomeScreen> {
       },
       builder: (context, state) {
         return Scaffold(
-          body: Row(
+          body:
+          Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               if (Responsive.isDesktop(context))
@@ -34,7 +35,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Column(
                   children: [
                     const HeaderHomeScreen(),
-                    Expanded(child: ContentGridViewScreens()),
+                    Expanded(child: ContentGridViewScreens(child:  HomeScreenCubit.get(context)
+            .screen[HomeScreenCubit.get(context).currentIndex],)),
                   ],
                 ),
               ),

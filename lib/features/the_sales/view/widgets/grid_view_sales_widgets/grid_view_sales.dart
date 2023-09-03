@@ -1,13 +1,12 @@
-import 'package:accounting/core/functions/navigator.dart';
-import 'package:accounting/core/shared/widgets/card.dart';
 import 'package:accounting/core/utils/color_manager.dart';
 import 'package:accounting/core/utils/responsive.dart';
-import 'package:accounting/core/utils/routes_manager.dart';
+import 'package:accounting/core/utils/strings_manager.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../core/shared/widgets/card.dart';
 
-class GridViewWidget extends StatelessWidget {
-  const GridViewWidget({Key? key}) : super(key: key);
+class GridViewWidgetSales extends StatelessWidget {
+  const GridViewWidgetSales({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,14 +25,15 @@ class GridViewWidget extends StatelessWidget {
             mainAxisSpacing: 20,
             childAspectRatio: 1.8,
             children: [
+
               InkWell(
                   hoverColor: ColorManager.grey400,
                   onTap: () {
-                    navigateTo(context, Routes.accountsGridViewComponent);
+                    print("[[[[[[[[[[[[[[[[[[[[[[[[[[[[");
                   },
                   child: const SelectCard(
                     icon: Icons.calculate_outlined,
-                    title: 'الحسابات',
+                    title: AppStrings.invoiceForThePriceQuotation,
                   )),
               InkWell(
                   hoverColor: ColorManager.grey400,
@@ -42,27 +42,26 @@ class GridViewWidget extends StatelessWidget {
                   },
                   child: const SelectCard(
                     icon: Icons.inventory,
-                    title: 'ادارة المخزون',
+                    title: AppStrings.salesInvoice,
                   )),
               InkWell(
                   hoverColor: ColorManager.grey400,
                   onTap: () {
-                    navigateTo(context, Routes.salesGridViewComponent);
+                    // GoRouter.of(context).push(AppRoute.buy);
                   },
                   child: const SelectCard(
                     icon: Icons.money,
 
-                    title: 'المبيعات',
+                    title: AppStrings.salesReturns,
                   )),
               InkWell(
                   hoverColor: ColorManager.grey400,
                   onTap: () {
-
                     // GoRouter.of(context).push(AppRoute.Representatives);
                   },
                   child: const SelectCard(
                     icon: Icons.card_travel,
-                    title: 'المشتريات',
+                    title: AppStrings.creditNotes,
                   )),
               InkWell(
                   hoverColor: ColorManager.grey400,
@@ -71,7 +70,7 @@ class GridViewWidget extends StatelessWidget {
                   },
                   child: const SelectCard(
                     icon: Icons.production_quantity_limits,
-                    title: 'الانتاج',
+                    title: AppStrings.returnedInvoices,
                   )),
               InkWell(
                   hoverColor: ColorManager.grey400,
@@ -80,41 +79,27 @@ class GridViewWidget extends StatelessWidget {
                   },
                   child: const SelectCard(
                     icon: Icons.h_mobiledata_rounded,
-                    title: "الموارد البشريه",
+                    title: AppStrings.periodicInvoices,
                   )),
               InkWell(
                   hoverColor: ColorManager.grey400,
                   onTap: () {
-                    // GoRouter.of(context).push(AppRoute.homePage);
+                    // GoRouter.of(context).push(AppRoute.Client);
                   },
                   child: const SelectCard(
-                    icon: Icons.call_to_action_sharp,
-                    title: "CRM",
+                    icon: Icons.h_mobiledata_rounded,
+                    title: AppStrings.invoiceManagement,
                   )),
               InkWell(
                   hoverColor: ColorManager.grey400,
                   onTap: () {
-                    // GoRouter.of(context).push(AppRoute.expenses);
+                    // GoRouter.of(context).push(AppRoute.Client);
                   },
                   child: const SelectCard(
-                    icon: Icons.production_quantity_limits,
-                    title: "المتجر الالكترونى",
+                    icon: Icons.h_mobiledata_rounded,
+                    title: AppStrings.dailyMovementReport,
                   )),
-              InkWell(
-                  hoverColor: ColorManager.grey400,
-                  onTap: () {
-                    // GoRouter.of(context).push(AppRoute.homePage);
-                  },
-                  child: const SelectCard(
-                    icon: Icons.settings,
-                    title: "الاعدادات",
-                  )),
-              InkWell(
-                hoverColor: ColorManager.grey400,
-                onTap: () {
-                  // GoRouter.of(context).push(AppRoute.homePage);
-                },
-              )
+
             ],
           ),
         ),

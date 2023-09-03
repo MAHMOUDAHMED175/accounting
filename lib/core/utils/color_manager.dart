@@ -8,6 +8,7 @@ class ColorManager {
   static Color orange = Colors.orange;
   static Color gridViewIconColor = Colors.green;
   static Color grey = const Color(0xff737477);
+  static Color grey100 = Colors.grey[100]!;
   static Color grey200 = Colors.grey[200]!;
   static Color grey300 = Colors.grey[300]!;
   static Color grey400 = Colors.grey[400]!;

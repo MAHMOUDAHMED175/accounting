@@ -1,7 +1,7 @@
+import 'package:accounting/core/utils/color_manager.dart';
+import 'package:accounting/features/home_screen/view/screens/home_screen.dart';
 import 'package:accounting/features/home_screen/view_model/home_screen_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:accounting/core/utils/color_manager.dart';
-import 'package:accounting/core/utils/routes_manager.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context)=>HomeScreenCubit()),
+        BlocProvider(create: (context) => HomeScreenCubit()),
       ],
       child: MaterialApp(
         title: 'Accounting',
@@ -36,8 +36,7 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
 
-        onGenerateRoute: RouteGenerator.getRoute,
-        initialRoute: Routes.splashRoute,
+       home: HomeScreen(),
         debugShowCheckedModeBanner: false,
       ),
     );
