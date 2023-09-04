@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 class ColorManager {
 
 
   //light
   static Color primary = Colors.grey[200]!;
+  static Color green = Colors.green;
+  static Color red = Colors.red;
+  static Color brown = Colors.brown;
   static Color orange = Colors.orange;
+  static Color yellow = HexColor("#E0B2FF");
+  static Color orange100 = Colors.orange[100]!;
+  static Color orange200 = Colors.orange[200]!;
   static Color gridViewIconColor = Colors.green;
   static Color grey = const Color(0xff737477);
   static Color grey100 = Colors.grey[100]!;
@@ -15,6 +22,7 @@ class ColorManager {
   static Color white = const Color(0xffFFFFFF);
   static Color black = Colors.black;
   static Color blue = Colors.blue;
+  static Color blue200 = Colors.blue[200]!;
   static Color blueAccent = Colors.blueAccent;
 
 

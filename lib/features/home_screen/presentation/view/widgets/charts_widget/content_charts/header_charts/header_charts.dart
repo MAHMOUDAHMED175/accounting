@@ -28,7 +28,6 @@ class HeaderCharts extends StatelessWidget {
               child: TextButton.icon(
                 onPressed: () {
                   HomeScreenCubit.get(context).chartHomeScreenChangeIndex(0);
-                  print('000000000000000000');
                 },
                 icon: Icon(
                   Icons.bar_chart,
@@ -43,7 +42,6 @@ class HeaderCharts extends StatelessWidget {
             InkWell(
               onTap: (){
                 HomeScreenCubit.get(context).chartHomeScreenChangeIndex(1);
-                print('2222222222222');
 
               },
               child: Container(
@@ -53,7 +51,6 @@ class HeaderCharts extends StatelessWidget {
                 child: TextButton.icon(
                   onPressed: () {
                     HomeScreenCubit.get(context).chartHomeScreenChangeIndex(1);
-                    print('333333333333333333');
 
                   },
                   icon: Icon(

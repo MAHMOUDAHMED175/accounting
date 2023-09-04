@@ -19,31 +19,6 @@ class ChartsHomeScreen extends StatelessWidget {
         child: Column(
           children: [
             const HeaderCharts(),
-            Padding(
-              padding: EdgeInsets.all(AppPadding.p8),
-              child: Row(children: [
-                const Text("الفواتير من 29/09/2024 الى 29/10/2024"),
-                SizedBox(
-                  width: AppSize.s4,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: ColorManager.blue,
-                  ),
-                  child: TextButton.icon(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.settings,
-                      color: ColorManager.black,
-                    ),
-                    label: Text(
-                      "التفاصيل",
-                      style: getBoldStyle(color: ColorManager.black),
-                    ),
-                  ),
-                ),
-              ]),
-            ),
 
             Expanded(
               child: HomeScreenCubit.get(context).chartHomeScreenScreens[

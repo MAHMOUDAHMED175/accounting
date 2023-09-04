@@ -24,10 +24,7 @@ class _SplineAreaState extends State<SplineArea> {
       legend: const Legend(isVisible: true, opacity: 0.7),
       title: ChartTitle(text: 'تقرير شهرى مختصر للفواتير(SAR)'),
       plotAreaBorderWidth: 1,
-      primaryXAxis: NumericAxis(
-          interval: 1,
-          majorGridLines: const MajorGridLines(width: 1),
-          edgeLabelPlacement: EdgeLabelPlacement.none),
+      primaryXAxis: CategoryAxis(), // Use CategoryAxis for non-numeric x-values
       primaryYAxis: NumericAxis(
           labelFormat: '{value}K',
           axisLine: const AxisLine(width: 0),
@@ -42,11 +39,18 @@ class _SplineAreaState extends State<SplineArea> {
   @override
   void initState() {
     chartData = <_SplineAreaData>[
-      _SplineAreaData(8,    14,  10,  7, 3),
-      _SplineAreaData(9,    20,  18, 9,  6),
-      _SplineAreaData(10,  30,25 ,  21,9  ),
-      _SplineAreaData(11,  40, 29, 23, 12 ),
-      _SplineAreaData(12,  50,30 , 26, 15 ),
+      //      ChartSampleDataLosing(x: 'Jan 2023', y: 15, secondSeriesYValue: 15),
+      //       ChartSampleDataLosing(x: 'Feb 2023', y: 10, secondSeriesYValue: 10),
+      //       ChartSampleDataLosing(x: 'March 2023', y: 5, secondSeriesYValue: 5),
+      //       ChartSampleDataLosing(x: 'April 2023', y: 20, secondSeriesYValue: 20),
+      //       ChartSampleDataLosing(x: 'May 2023', y: 10, secondSeriesYValue: 10),
+      //       ChartSampleDataLosing(x: 'June 2023', y: 15, secondSeriesYValue: 15)
+
+      _SplineAreaData('Jan 2023',    14,  10,  7, 3),
+      _SplineAreaData('May 2023',    20,  18, 9,  6),
+      _SplineAreaData('March 2023',  30,25 ,  21,9  ),
+      _SplineAreaData('April 2023',  40, 29, 23, 12 ),
+      _SplineAreaData('Feb 2023',  50,30 , 26, 15 ),
 
     ];
     super.initState();
@@ -54,42 +58,42 @@ class _SplineAreaState extends State<SplineArea> {
 
   /// Returns the list of chart series
   /// which need to render on the spline area chart.
-  List<ChartSeries<_SplineAreaData, double>> _getSplieAreaSeries() {
-    return <ChartSeries<_SplineAreaData, double>>[
-      SplineAreaSeries<_SplineAreaData, double>(
+  List<ChartSeries<_SplineAreaData, String>> _getSplieAreaSeries() {
+    return <ChartSeries<_SplineAreaData, String>>[
+      SplineAreaSeries<_SplineAreaData, String>(
         dataSource: chartData!,
         color:  Colors.deepPurpleAccent.withOpacity(0.3),
         borderColor: Colors.deepPurpleAccent,
         borderWidth: 2,
         name: 'مرتجع',
-        xValueMapper: (_SplineAreaData sales, _) => sales.month,
+        xValueMapper: (_SplineAreaData sales, _) => sales.month ,
         yValueMapper: (_SplineAreaData sales, _) => sales.y1,
       ),
-      SplineAreaSeries<_SplineAreaData, double>(
+      SplineAreaSeries<_SplineAreaData, String>(
         dataSource: chartData!,
         borderColor: Colors.red,
         color:Colors.red.withOpacity(0.3),
         borderWidth: 2,
         name: 'غير مدفوعه',
-        xValueMapper: (_SplineAreaData sales, _) => sales.month,
+        xValueMapper: (_SplineAreaData sales, _) => sales.month ,
         yValueMapper: (_SplineAreaData sales, _) => sales.y2,
       ),
-      SplineAreaSeries<_SplineAreaData, double>(
+      SplineAreaSeries<_SplineAreaData,String>(
         dataSource: chartData!,
         borderColor:Colors.green,
         color:Colors.green.withOpacity(0.3),
         borderWidth: 2,
         name: 'مدفوعه',
-        xValueMapper: (_SplineAreaData sales, _) => sales.month,
+        xValueMapper: (_SplineAreaData sales, _) => sales.month ,
         yValueMapper: (_SplineAreaData sales, _) => sales.y3,
       ),
-      SplineAreaSeries<_SplineAreaData, double>(
+      SplineAreaSeries<_SplineAreaData, String>(
         dataSource: chartData!,
         borderColor: Colors.blue,
         color:Colors.blue.withOpacity(0.3),
         borderWidth: 2,
         name: 'الاجمالى',
-        xValueMapper: (_SplineAreaData sales, _) => sales.month,
+        xValueMapper: (_SplineAreaData sales, _) => sales.month ,
         yValueMapper: (_SplineAreaData sales, _) => sales.y4,
       ),
     ];
@@ -105,7 +109,7 @@ class _SplineAreaState extends State<SplineArea> {
 /// Private class for storing the spline area chart datapoints.
 class _SplineAreaData {
   _SplineAreaData(this.month, this.y1, this.y2, this.y3, this.y4);
-  final double month;
+  final String month;
   final double y1;
   final double y2;
   final double y3;

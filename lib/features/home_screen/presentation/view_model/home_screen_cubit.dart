@@ -4,6 +4,8 @@ import 'package:accounting/features/home_screen/presentation/view/widgets/charts
 import 'package:accounting/features/home_screen/presentation/view/widgets/charts_widget/content_charts/categorey_charts/late_pay_invoice.dart';
 import 'package:accounting/features/home_screen/presentation/view/widgets/charts_widget/content_charts/categorey_charts/losing.dart';
 import 'package:accounting/features/home_screen/presentation/view/widgets/charts_widget/content_charts/categorey_charts/new_invoice.dart';
+import 'package:accounting/features/home_screen/presentation/view/widgets/charts_widget/content_charts/losing_widgets/colume_chart_losing_cash.dart';
+import 'package:accounting/features/home_screen/presentation/view/widgets/charts_widget/content_charts/losing_widgets/colume_chart_losing_expected.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -26,7 +28,7 @@ class HomeScreenCubit extends Cubit<HomeScreenState> {
   List<Widget> screen = [
     const ControlBoardScreen(),
     const DailyRestrictionsScreen(),
-    // const FavoritesScreen(),
+
   ];
 
   void changeIndex(int index) {
@@ -36,18 +38,61 @@ class HomeScreenCubit extends Cubit<HomeScreenState> {
 
 
 
-  int chartHomeScreenCurrentIndex = 0;
+  int chartHomeScreenCurrentIndex = 3;
 
   List<Widget> chartHomeScreenScreens = [
      InvoiceManagement(),
      LosingMoney(),
     const NewInvoice(),
     const LatePayInvoice(),
-    // const FavoritesScreen(),
   ];
 
   void chartHomeScreenChangeIndex(int index) {
     chartHomeScreenCurrentIndex = index;
     emit(chartHomeScreenChangeIndexSideMenuState());
   }
+
+
+
+
+
+  int losingCurrentIndex = 0;
+
+  List<Widget> losingScreens = [
+    ColumChartLosingCash(),
+    ColumChartLosingExpected(),
+    // const FavoritesScreen(),
+  ];
+
+  void losingChangeIndex(int index) {
+    losingCurrentIndex = index;
+    emit(losingChangeIndexState());
+  }
+
+
+
+
+
+
+
+
+
+
+   bool light=true;
+
+  void lightChange() {
+    light =! light;
+    emit(lightChangeState());
+  }
+
+
+
+
+
+
+
+
+
+
+
 }
