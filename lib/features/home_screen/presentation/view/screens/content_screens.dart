@@ -10,9 +10,6 @@ class ContentGridViewScreens extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.teal,
-      ),
       body:Navigator(
         key: navigatorKey,
         onGenerateRoute: RouteGenerator.getRoute,

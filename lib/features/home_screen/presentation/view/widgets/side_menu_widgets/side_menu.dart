@@ -3,7 +3,7 @@
 
 import 'package:accounting/core/utils/color_manager.dart';
 import 'package:accounting/core/utils/values_manager.dart';
-import 'package:accounting/features/home_screen/view/widgets/side_menu_widgets/expansion_panel_list_home_screen.dart';
+import 'package:accounting/features/home_screen/presentation/view/widgets/side_menu_widgets/expansion_panel_list_home_screen.dart';
 import 'package:flutter/material.dart';
 
 Widget sideMenu(context){

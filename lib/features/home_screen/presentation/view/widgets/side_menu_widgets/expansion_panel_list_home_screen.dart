@@ -2,8 +2,9 @@ import 'package:accounting/core/utils/color_manager.dart';
 import 'package:accounting/core/utils/strings_manager.dart';
 import 'package:accounting/core/utils/values_manager.dart';
 import 'package:accounting/features/home_screen/data/step_side_menu.dart';
-import 'package:accounting/features/home_screen/view/widgets/side_menu_widgets/item_expansion_panel.dart';
 import 'package:flutter/material.dart';
+
+import 'item_expansion_panel.dart';
 
 class ExpansionPanelListHomeScreen extends StatefulWidget {
   const ExpansionPanelListHomeScreen({Key? key}) : super(key: key);

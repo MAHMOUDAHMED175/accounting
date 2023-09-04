@@ -1,10 +1,10 @@
 import 'package:accounting/core/utils/color_manager.dart';
+import 'package:accounting/core/utils/responsive.dart';
 import 'package:accounting/core/utils/styles_manager.dart';
-import 'package:accounting/features/home_screen/view/widgets/charts_widget/header_charts.dart';
-import 'package:accounting/features/home_screen/view_model/home_screen_cubit.dart';
-import 'package:accounting/features/home_screen/view_model/home_screen_state.dart';
+import 'package:accounting/core/utils/values_manager.dart';
+import 'package:accounting/features/home_screen/presentation/view/widgets/charts_widget/content_charts/header_charts/header_charts.dart';
+import 'package:accounting/features/home_screen/presentation/view_model/home_screen_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ChartsHomeScreen extends StatelessWidget {
   const ChartsHomeScreen({super.key});
@@ -15,35 +15,42 @@ class ChartsHomeScreen extends StatelessWidget {
       padding: const EdgeInsets.all(40.0),
       child: Container(
         color: ColorManager.white,
-        height: 650,
+        height: Responsive.isDesktop(context)? 600: 900,
         child: Column(
           children: [
             const HeaderCharts(),
-
-            Row(
-              children: [
+            Padding(
+              padding: EdgeInsets.all(AppPadding.p8),
+              child: Row(children: [
                 const Text("الفواتير من 29/09/2024 الى 29/10/2024"),
+                SizedBox(
+                  width: AppSize.s4,
+                ),
                 Container(
                   decoration: BoxDecoration(
                     color: ColorManager.blue,
                   ),
                   child: TextButton.icon(
-                    onPressed: () {
-
-                    },
+                    onPressed: () {},
                     icon: Icon(
                       Icons.settings,
                       color: ColorManager.black,
                     ),
                     label: Text(
-                     "التفاصيل",
+                      "التفاصيل",
                       style: getBoldStyle(color: ColorManager.black),
                     ),
                   ),
                 ),
-              ]
+              ]),
             ),
-              Expanded(child: ChartsContent()),
+
+            Expanded(
+              child: HomeScreenCubit.get(context).chartHomeScreenScreens[
+              HomeScreenCubit.get(context).chartHomeScreenCurrentIndex],
+            ),
+
+
           ],
         ),
       ),
@@ -51,20 +58,3 @@ class ChartsHomeScreen extends StatelessWidget {
   }
 }
 
-class ChartsContent extends StatelessWidget {
-  const ChartsContent({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocConsumer<HomeScreenCubit, HomeScreenState>(
-  listener: (context, state) {
-  },
-  builder: (context, state) {
-    return Scaffold(
-      body: HomeScreenCubit.get(context).chartHomeScreenScreens[
-          HomeScreenCubit.get(context).chartHomeScreenCurrentIndex],
-    );
-  },
-);
-  }
-}

@@ -1,6 +1,6 @@
 import 'package:accounting/core/utils/color_manager.dart';
-import 'package:accounting/features/home_screen/view/screens/home_screen.dart';
-import 'package:accounting/features/home_screen/view_model/home_screen_cubit.dart';
+import 'package:accounting/features/home_screen/presentation/view/screens/home_screen.dart';
+import 'package:accounting/features/home_screen/presentation/view_model/home_screen_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -37,6 +37,10 @@ class MyApp extends StatelessWidget {
         ),
 
        home: HomeScreen(),
+       //  onGenerateRoute: RouteGenerator.getRoute,
+        // onGenerateInitialRoutes: (navigator) => [
+        //   MaterialPageRoute(builder: (context) => HomeScreen()),
+        // ],
         debugShowCheckedModeBanner: false,
       ),
     );

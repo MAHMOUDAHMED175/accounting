@@ -1,12 +1,11 @@
 import 'package:accounting/core/utils/strings_manager.dart';
 import 'package:accounting/features/accounting/view/screens/accounts_grid_view_commponent.dart';
-import 'package:accounting/features/home_screen/view/screens/control_board.dart';
+import 'package:accounting/features/home_screen/presentation/view/screens/control_board.dart';
 import 'package:accounting/features/the_sales/view/screens/sales_grid_view_commponent.dart';
 import 'package:flutter/material.dart';
 
 class Routes {
   static const String splashRoute = "/";
-
   static const String contentGridViewScreens = "/ContentGridViewScreens";
   static const String accountsGridViewComponent = "/AccountsGridViewComponent";
   static const String salesGridViewComponent = "/SalesGridViewComponent";

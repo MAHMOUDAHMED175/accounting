@@ -1,9 +1,7 @@
 import 'package:accounting/core/utils/color_manager.dart';
 import 'package:accounting/core/utils/font_manager.dart';
 import 'package:accounting/core/utils/styles_manager.dart';
-import 'package:accounting/core/utils/values_manager.dart';
-import 'package:accounting/features/home_screen/view/widgets/charts_widget/charts_home_screen_widget.dart';
-import 'package:accounting/features/home_screen/view/widgets/grid_view_widgets/grid_view_widgets.dart';
+import 'package:accounting/features/home_screen/presentation/view/widgets/charts_widget/charts_home_screen_widget.dart';
 import 'package:flutter/material.dart';
 
 class ControlBoardScreen extends StatelessWidget {
@@ -24,11 +22,10 @@ class ControlBoardScreen extends StatelessWidget {
               padding: const EdgeInsets.only(right: 40.0),
               child: Text('اهلا و مرحبا بك , اخترت صح',style: getBoldStyle(color: ColorManager.black,fontSize: FontSize.s30),),
             ),
-            SizedBox(
-                height: AppSize.s650,
-                child: GridViewWidget()),
+            // SizedBox(
+            //     height: AppSize.s650,
+            //     child: GridViewWidget()),
             ChartsHomeScreen(),
-
           ],
         ),
       ),

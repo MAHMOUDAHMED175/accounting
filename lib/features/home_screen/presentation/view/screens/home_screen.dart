@@ -1,12 +1,12 @@
 import 'package:accounting/core/utils/responsive.dart';
-import 'package:accounting/features/home_screen/view/screens/content_screens.dart';
-import 'package:accounting/features/home_screen/view/widgets/side_menu_widgets/side_menu.dart';
-import 'package:accounting/features/home_screen/view_model/home_screen_cubit.dart';
-import 'package:accounting/features/home_screen/view_model/home_screen_state.dart';
+import 'package:accounting/features/home_screen/presentation/view/screens/content_screens.dart';
+import 'package:accounting/features/home_screen/presentation/view/widgets/header_home_screen_widgets/header_home_screen.dart';
+import 'package:accounting/features/home_screen/presentation/view/widgets/side_menu_widgets/side_menu.dart';
+import 'package:accounting/features/home_screen/presentation/view_model/home_screen_cubit.dart';
+import 'package:accounting/features/home_screen/presentation/view_model/home_screen_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../widgets/header_home_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);

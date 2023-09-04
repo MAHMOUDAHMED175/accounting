@@ -2,9 +2,9 @@
 import 'package:accounting/core/utils/color_manager.dart';
 import 'package:accounting/core/utils/strings_manager.dart';
 import 'package:accounting/core/utils/values_manager.dart';
-import 'package:accounting/features/home_screen/view/widgets/side_menu_widgets/accounting_component.dart';
-import 'package:accounting/features/home_screen/view/widgets/side_menu_widgets/control_board_component.dart';
-import 'package:accounting/features/home_screen/view/widgets/side_menu_widgets/sales_component.dart';
+import 'package:accounting/features/home_screen/presentation/view/widgets/side_menu_widgets/accounting_component.dart';
+import 'package:accounting/features/home_screen/presentation/view/widgets/side_menu_widgets/control_board_component.dart';
+import 'package:accounting/features/home_screen/presentation/view/widgets/side_menu_widgets/sales_component.dart';
 import 'package:flutter/material.dart';
 
 
