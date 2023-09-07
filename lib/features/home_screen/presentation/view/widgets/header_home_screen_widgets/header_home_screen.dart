@@ -32,7 +32,7 @@ class HeaderHomeScreen extends StatelessWidget {
             ),
             const Spacer(),
             Text(
-              AppStrings.engineeringConsulting,
+              AppStrings.appName,
               style: getLightStyle(
                   color: ColorManager.white, fontSize: FontSize.s18),
             ),

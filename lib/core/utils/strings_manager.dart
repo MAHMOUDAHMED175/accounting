@@ -1,5 +1,5 @@
 class AppStrings {
-  static const String appName = "Accounting";
+  static const String appName = "محيط الحاسوب للاتصالات وتقنية المعلومات";
   static const String noRouteFound = "noRouteFound";
 
   ///home Screen
