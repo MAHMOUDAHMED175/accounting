@@ -9,16 +9,18 @@ class SelectCard extends StatelessWidget {
     Key? key,
     required this.icon,
     required this.title,
+     this.elevation,
   }) : super(key: key);
 
   final IconData icon;
   final String title;
+  final double? elevation;
 
   @override
   Widget build(BuildContext context) {
     return Card(
         color: ColorManager.white,
-        elevation: 8,
+        elevation: elevation ?? 8,
         // shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
         child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,

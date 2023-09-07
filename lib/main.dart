@@ -1,6 +1,7 @@
 import 'package:accounting/core/utils/color_manager.dart';
 import 'package:accounting/features/home_screen/presentation/view/screens/home_screen.dart';
 import 'package:accounting/features/home_screen/presentation/view_model/home_screen_cubit.dart';
+import 'package:accounting/features/restaurant/presentation/view_model/reastaurant_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => HomeScreenCubit()),
+        BlocProvider(create: (context) => RestaurantCubit()),
       ],
       child: MaterialApp(
         title: 'Accounting',

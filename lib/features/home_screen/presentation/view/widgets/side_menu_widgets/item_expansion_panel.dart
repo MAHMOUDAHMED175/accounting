@@ -7,6 +7,8 @@ import 'package:accounting/features/home_screen/presentation/view/widgets/side_m
 import 'package:accounting/features/home_screen/presentation/view/widgets/side_menu_widgets/sales_component.dart';
 import 'package:flutter/material.dart';
 
+import 'restaurant_component.dart';
+
 
 
 Widget buildSubItem(String title, Function onTap) {
@@ -53,6 +55,8 @@ Widget itemsHeaderExpansionPanelList(context,String title) {
       return Container();
     case AppStrings.settings:
       return Container();
+    case AppStrings.restaurant:
+      return restaurantSubItems(context);
 
     default:
       return Container();

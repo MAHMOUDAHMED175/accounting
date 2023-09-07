@@ -6,6 +6,7 @@ import 'package:accounting/features/home_screen/presentation/view/widgets/charts
 import 'package:accounting/features/home_screen/presentation/view/widgets/charts_widget/content_charts/categorey_charts/new_invoice.dart';
 import 'package:accounting/features/home_screen/presentation/view/widgets/charts_widget/content_charts/losing_widgets/colume_chart_losing_cash.dart';
 import 'package:accounting/features/home_screen/presentation/view/widgets/charts_widget/content_charts/losing_widgets/colume_chart_losing_expected.dart';
+import 'package:accounting/features/restaurant/presentation/view/screens/restaurant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -23,12 +24,12 @@ class HomeScreenCubit extends Cubit<HomeScreenState> {
     emit(changeOpenSideState());
   }
 
-  int currentIndex = 0;
+  int currentIndex = 2;
 
   List<Widget> screen = [
     const ControlBoardScreen(),
     const DailyRestrictionsScreen(),
-
+    Restaurant(),
   ];
 
   void changeIndex(int index) {

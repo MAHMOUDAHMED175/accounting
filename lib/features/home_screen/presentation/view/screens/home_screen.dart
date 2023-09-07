@@ -7,7 +7,6 @@ import 'package:accounting/features/home_screen/presentation/view_model/home_scr
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -19,29 +18,31 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<HomeScreenCubit, HomeScreenState>(
-      listener: (context, state) {
-      },
+      listener: (context, state) {},
       builder: (context, state) {
         return Scaffold(
-          body:
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              if (Responsive.isDesktop(context))
-                if (HomeScreenCubit
-                  .get(context)
-                  .openSide) sideMenu(context),
-              Expanded(
-                child: Column(
-                  children: [
-                    const HeaderHomeScreen(),
-                    Expanded(child: ContentGridViewScreens(child:  HomeScreenCubit.get(context)
-            .screen[HomeScreenCubit.get(context).currentIndex],)),
-                  ],
-                ),
-              ),
-            ],
-          ),
+            body:
+
+             Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  if (Responsive.isDesktop(context))
+                    if (HomeScreenCubit.get(context).openSide)
+                      sideMenu(context),
+                  Expanded(
+                    child: Column(
+                      children: [
+                        const HeaderHomeScreen(),
+                        Expanded(
+                            child: ContentGridViewScreens(
+                          child: HomeScreenCubit.get(context).screen[
+                              HomeScreenCubit.get(context).currentIndex],
+                        )),
+                      ],
+                    ),
+                  ),
+                ],
+             ),
         );
       },
     );

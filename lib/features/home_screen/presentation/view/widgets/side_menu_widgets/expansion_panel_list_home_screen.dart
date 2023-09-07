@@ -14,8 +14,10 @@ class ExpansionPanelListHomeScreen extends StatefulWidget {
       _ExpansionPanelListHomeScreenState();
 }
 
-class _ExpansionPanelListHomeScreenState extends State<ExpansionPanelListHomeScreen> {
+class _ExpansionPanelListHomeScreenState
+    extends State<ExpansionPanelListHomeScreen> {
   final List<StepSideMenu> _steps = getSteps();
+
   @override
   Widget build(BuildContext context) {
     return ExpansionPanelList(
@@ -51,7 +53,7 @@ class _ExpansionPanelListHomeScreenState extends State<ExpansionPanelListHomeScr
               ),
             );
           },
-          body: itemsHeaderExpansionPanelList(context,step.title),
+          body: itemsHeaderExpansionPanelList(context, step.title),
           isExpanded: step.isExpanded,
         );
       }).toList(),
@@ -62,11 +64,12 @@ class _ExpansionPanelListHomeScreenState extends State<ExpansionPanelListHomeScr
 List<StepSideMenu> getSteps() {
   return [
     StepSideMenu(
-      'لوحة التحكم',
+      AppStrings.controlBoard,
       Icons.home,
     ),
     StepSideMenu(AppStrings.theAccounts, Icons.payments_outlined),
-    StepSideMenu(AppStrings.inventoryManagement, Icons.indeterminate_check_box_rounded),
+    StepSideMenu(
+        AppStrings.inventoryManagement, Icons.indeterminate_check_box_rounded),
     StepSideMenu(AppStrings.sales, Icons.event_note),
     StepSideMenu(AppStrings.purchases, Icons.car_crash_outlined),
     StepSideMenu(AppStrings.production, Icons.production_quantity_limits),
@@ -74,5 +77,6 @@ List<StepSideMenu> getSteps() {
     StepSideMenu(AppStrings.CRM, Icons.chrome_reader_mode_outlined),
     StepSideMenu(AppStrings.onlineStore, Icons.add_business_sharp),
     StepSideMenu(AppStrings.settings, Icons.settings),
+    StepSideMenu(AppStrings.restaurant, Icons.restaurant),
   ];
 }

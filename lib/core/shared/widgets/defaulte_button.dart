@@ -1,32 +1,32 @@
+import 'package:accounting/core/utils/values_manager.dart';
 import 'package:flutter/material.dart';
 
 import '../../utils/color_manager.dart';
 import '../../utils/styles_manager.dart';
 
 class DefaultButton extends StatelessWidget {
-  final String text;
+  final Widget widget;
   final VoidCallback onPress;
-  final double? width;
+  final double? height;
   final Color color;
   const DefaultButton({
     super.key,
-    required this.text,
+    required this.widget,
     required this.onPress,
-    this.width,
+    this.height,
     required this.color,
   });
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: width,
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(backgroundColor: color),
-        onPressed: onPress,
-        child: Text(
-          text,
-          style: getLightStyle(color: ColorManager.white),
-        ),
-      ),
+    return MaterialButton(
+      shape: RoundedRectangleBorder(),
+      color: color,
+      onPressed: onPress,
+      child: widget,
+      height: AppSize.s50,
+      elevation: 4,
+
+
     );
   }
 }
