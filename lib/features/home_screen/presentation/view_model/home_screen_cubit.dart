@@ -17,7 +17,7 @@ class HomeScreenCubit extends Cubit<HomeScreenState> {
 
   HomeScreenCubit() : super(HomeScreenInitial());
 
-  bool openSide = true;
+  bool openSide = false;
 
   void changeOpenSide() {
     openSide = !openSide;

@@ -7,7 +7,7 @@ class RestaurantPrinterSettings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.deepPurpleAccent,
+      color: Colors.grey[200],
       width: double.infinity,
     );
   }
