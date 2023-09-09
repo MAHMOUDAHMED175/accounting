@@ -32,6 +32,7 @@ class GridViewWidget extends StatelessWidget {
                     navigateTo(context, Routes.accountsGridViewComponent);
                   },
                   child: const SelectCard(
+                    imageOr: false,
                     icon: Icons.calculate_outlined,
                     title: 'الحسابات',
                   )),
@@ -42,6 +43,7 @@ class GridViewWidget extends StatelessWidget {
                   },
                   child: const SelectCard(
                     icon: Icons.inventory,
+                    imageOr: false,
                     title: 'ادارة المخزون',
                   )),
               InkWell(
@@ -50,6 +52,7 @@ class GridViewWidget extends StatelessWidget {
                     navigateTo(context, Routes.salesGridViewComponent);
                   },
                   child: const SelectCard(
+                    imageOr: false,
                     icon: Icons.money,
 
                     title: 'المبيعات',
@@ -62,6 +65,7 @@ class GridViewWidget extends StatelessWidget {
                   },
                   child: const SelectCard(
                     icon: Icons.card_travel,
+                    imageOr: false,
                     title: 'المشتريات',
                   )),
               InkWell(
@@ -71,6 +75,7 @@ class GridViewWidget extends StatelessWidget {
                   },
                   child: const SelectCard(
                     icon: Icons.production_quantity_limits,
+                    imageOr: false,
                     title: 'الانتاج',
                   )),
               InkWell(
@@ -79,6 +84,7 @@ class GridViewWidget extends StatelessWidget {
                     // GoRouter.of(context).push(AppRoute.Client);
                   },
                   child: const SelectCard(
+                    imageOr: false,
                     icon: Icons.h_mobiledata_rounded,
                     title: "الموارد البشريه",
                   )),
@@ -89,6 +95,7 @@ class GridViewWidget extends StatelessWidget {
                   },
                   child: const SelectCard(
                     icon: Icons.call_to_action_sharp,
+                    imageOr: false,
                     title: "CRM",
                   )),
               InkWell(
@@ -97,6 +104,7 @@ class GridViewWidget extends StatelessWidget {
                     // GoRouter.of(context).push(AppRoute.expenses);
                   },
                   child: const SelectCard(
+                    imageOr: false,
                     icon: Icons.production_quantity_limits,
                     title: "المتجر الالكترونى",
                   )),
@@ -107,6 +115,7 @@ class GridViewWidget extends StatelessWidget {
                   },
                   child: const SelectCard(
                     icon: Icons.settings,
+                    imageOr: false,
                     title: "الاعدادات",
                   )),
               InkWell(

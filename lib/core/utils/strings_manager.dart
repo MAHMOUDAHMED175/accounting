@@ -73,6 +73,15 @@ class AppStrings {
 
 
 
+  static const String pizza = "بيتزا";
+  static const String salad = "سلطات";
+  static const String hotDrink = "مشروبات حاره";
+  static const String solidDrink = "مشروبات بارده";
+  static const String sweets = "حلويات";
+
+
+
+
 
 
 

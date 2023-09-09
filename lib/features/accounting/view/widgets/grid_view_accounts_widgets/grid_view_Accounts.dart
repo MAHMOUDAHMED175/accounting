@@ -32,6 +32,7 @@ class GridViewWidgetAccounts extends StatelessWidget {
                   },
                   child: const SelectCard(
                     icon: Icons.calculate_outlined,
+                    imageOr: false,
                     title: AppStrings.dailyRestrictions,
                   )),
               InkWell(
@@ -41,6 +42,7 @@ class GridViewWidgetAccounts extends StatelessWidget {
                   },
                   child: const SelectCard(
                     icon: Icons.inventory,
+                    imageOr: false,
                     title: AppStrings.accountsGuide,
                   )),
               InkWell(
@@ -51,6 +53,7 @@ class GridViewWidgetAccounts extends StatelessWidget {
                   child: const SelectCard(
                     icon: Icons.money,
 
+                    imageOr: false,
                     title: AppStrings.costCentres,
                   )),
               InkWell(
@@ -59,6 +62,7 @@ class GridViewWidgetAccounts extends StatelessWidget {
                     // GoRouter.of(context).push(AppRoute.Representatives);
                   },
                   child: const SelectCard(
+                    imageOr: false,
                     icon: Icons.card_travel,
                     title: AppStrings.fixedAssets,
                   )),
@@ -70,6 +74,7 @@ class GridViewWidgetAccounts extends StatelessWidget {
                   child: const SelectCard(
                     icon: Icons.production_quantity_limits,
                     title: AppStrings.receiptOfMoney,
+                    imageOr: false,
                   )),
               InkWell(
                   hoverColor: ColorManager.grey400,
@@ -78,6 +83,7 @@ class GridViewWidgetAccounts extends StatelessWidget {
                   },
                   child: const SelectCard(
                     icon: Icons.h_mobiledata_rounded,
+                    imageOr: false,
                     title: AppStrings.spendingMoney,
                   )),
 

@@ -25,13 +25,11 @@ class GridViewWidgetSales extends StatelessWidget {
             mainAxisSpacing: 20,
             childAspectRatio: 1.8,
             children: [
-
               InkWell(
                   hoverColor: ColorManager.grey400,
-                  onTap: () {
-                    print("[[[[[[[[[[[[[[[[[[[[[[[[[[[[");
-                  },
+                  onTap: () {},
                   child: const SelectCard(
+                    imageOr: false,
                     icon: Icons.calculate_outlined,
                     title: AppStrings.invoiceForThePriceQuotation,
                   )),
@@ -41,6 +39,7 @@ class GridViewWidgetSales extends StatelessWidget {
                     // GoRouter.of(context).push(AppRoute.sell);
                   },
                   child: const SelectCard(
+                    imageOr: false,
                     icon: Icons.inventory,
                     title: AppStrings.salesInvoice,
                   )),
@@ -51,7 +50,7 @@ class GridViewWidgetSales extends StatelessWidget {
                   },
                   child: const SelectCard(
                     icon: Icons.money,
-
+                    imageOr: false,
                     title: AppStrings.salesReturns,
                   )),
               InkWell(
@@ -61,6 +60,7 @@ class GridViewWidgetSales extends StatelessWidget {
                   },
                   child: const SelectCard(
                     icon: Icons.card_travel,
+                    imageOr: false,
                     title: AppStrings.creditNotes,
                   )),
               InkWell(
@@ -70,6 +70,7 @@ class GridViewWidgetSales extends StatelessWidget {
                   },
                   child: const SelectCard(
                     icon: Icons.production_quantity_limits,
+                    imageOr: false,
                     title: AppStrings.returnedInvoices,
                   )),
               InkWell(
@@ -79,6 +80,7 @@ class GridViewWidgetSales extends StatelessWidget {
                   },
                   child: const SelectCard(
                     icon: Icons.h_mobiledata_rounded,
+                    imageOr: false,
                     title: AppStrings.periodicInvoices,
                   )),
               InkWell(
@@ -88,6 +90,7 @@ class GridViewWidgetSales extends StatelessWidget {
                   },
                   child: const SelectCard(
                     icon: Icons.h_mobiledata_rounded,
+                    imageOr: false,
                     title: AppStrings.invoiceManagement,
                   )),
               InkWell(
@@ -97,9 +100,9 @@ class GridViewWidgetSales extends StatelessWidget {
                   },
                   child: const SelectCard(
                     icon: Icons.h_mobiledata_rounded,
+                    imageOr: false,
                     title: AppStrings.dailyMovementReport,
                   )),
-
             ],
           ),
         ),
