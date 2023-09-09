@@ -10,13 +10,13 @@ import 'package:flutter/material.dart';
 Widget noDataRestaurantPay(){
   return Column(
     children: [
-      SizedBox(
+      const SizedBox(
         height: 100,
       ),
       Container(
         height: 200,
         width: 200,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage(ImageAssets.bell))),
       ),

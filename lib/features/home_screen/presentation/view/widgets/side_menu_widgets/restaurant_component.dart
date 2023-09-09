@@ -13,11 +13,6 @@ Widget restaurantSubItems(context) => Column(
           RestaurantCubit.get(context).restaurantChangeIndex(1);
           HomeScreenCubit.get(context).changeIndex(2);
         }),
-        buildSubItem(AppStrings.add_ons, () {
-          RestaurantCubit.get(context).restaurantChangeIndex(2);
-          HomeScreenCubit.get(context).changeIndex(2);
-          // تنفيذ الإجراء عند الضغط على القيود اليومية
-        }),
         buildSubItem(AppStrings.reservations, () {
           RestaurantCubit.get(context).restaurantChangeIndex(3);
           HomeScreenCubit.get(context).changeIndex(2);
