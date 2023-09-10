@@ -7,6 +7,7 @@ class ColorManager {
   static Color primary = Colors.grey[200]!;
   static Color green = Colors.green;
   static Color red = Colors.red;
+  static Color red200 = Colors.red[200]!;
   static Color brown = Colors.brown;
   static Color orange = Colors.orange;
   static Color tealPro = const Color(0xff188094);
