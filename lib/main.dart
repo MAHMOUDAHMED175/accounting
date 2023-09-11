@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
 
-       home: const CashierScreen(),
+       home: const HomeScreen(),
        //  onGenerateRoute: RouteGenerator.getRoute,
        //  initialRoute: Routes.splashRoute,
         debugShowCheckedModeBanner: false,

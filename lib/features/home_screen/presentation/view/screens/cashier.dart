@@ -4,6 +4,7 @@ import 'package:accounting/core/utils/color_manager.dart';
 import 'package:accounting/core/utils/font_manager.dart';
 import 'package:accounting/core/utils/styles_manager.dart';
 import 'package:accounting/core/utils/values_manager.dart';
+import 'package:accounting/features/home_screen/presentation/view/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -94,7 +95,14 @@ class _CashierScreenState extends State<CashierScreen> {
                         ),
                       ],
                     ),
-                    onPress: () {},
+                    onPress: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>  HomeScreen(),
+                        ),
+                      );
+                    },
                     color: ColorManager.red,
                   ),
                 ),
