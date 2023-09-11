@@ -26,6 +26,7 @@ class ColorManager {
   static Color blueAccent = Colors.blueAccent;
   static Color greenOpacity = Color(0xffE7F7ED);
   static Color deepOpacity = Color(0xffF1E3F6);
+  static Color deepPurpleAccent = Colors.deepPurpleAccent;
 
 
 
