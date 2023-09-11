@@ -1,14 +1,17 @@
 import 'package:accounting/core/utils/color_manager.dart';
 import 'package:accounting/core/utils/values_manager.dart';
+import 'package:accounting/features/restaurant/presentation/view/widgets/add_one/items_client_will_pay.dart';
 import 'package:accounting/features/restaurant/presentation/view/widgets/pay_widgets/buttons_restaurant_pay_and_kitchen_and_delete.dart';
+import 'package:accounting/features/restaurant/presentation/view/widgets/pay_widgets/no_data_restaurant_pay.dart';
 import 'package:accounting/features/restaurant/presentation/view_model/reastaurant_cubit.dart';
 import 'package:accounting/features/restaurant/presentation/view_model/reastaurant_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Restaurant extends StatelessWidget {
-  const Restaurant({super.key});
+   Restaurant({super.key});
 
+  bool data=false;
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<RestaurantCubit, RestaurantState>(
@@ -41,7 +44,8 @@ class Restaurant extends StatelessWidget {
                   color: Colors.white,
                   child: Column(
                     children: [
-                       buttonsRestaurantPayAndKitchenAndDelete(true)
+                        data? const Expanded(child: ItemsClientWillPay()) : Expanded(child: noDataRestaurantPay()),
+                       buttonsRestaurantPayAndKitchenAndDelete(data)
                     ],
                   ),
                 ),

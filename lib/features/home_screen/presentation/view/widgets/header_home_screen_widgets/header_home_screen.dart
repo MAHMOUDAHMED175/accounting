@@ -3,6 +3,7 @@ import 'package:accounting/core/utils/font_manager.dart';
 import 'package:accounting/core/utils/strings_manager.dart';
 import 'package:accounting/core/utils/styles_manager.dart';
 import 'package:accounting/core/utils/values_manager.dart';
+import 'package:accounting/features/home_screen/presentation/view/screens/cashier.dart';
 import 'package:accounting/features/home_screen/presentation/view_model/home_screen_cubit.dart';
 import 'package:flutter/material.dart';
 
@@ -60,9 +61,19 @@ class HeaderHomeScreen extends StatelessWidget {
             const SizedBox(
               width: AppSize.s12,
             ),
-            Icon(
-              Icons.payments_outlined,
-              color: ColorManager.white,
+            IconButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>  CashierScreen(),
+                  ),
+                );
+              },
+              icon: Icon(
+                Icons.payments_outlined,
+                color: ColorManager.white,
+              ),
             ),
             const SizedBox(
               width: AppSize.s12,

@@ -1,4 +1,6 @@
 import 'package:accounting/core/utils/color_manager.dart';
+import 'package:accounting/core/utils/routes_manager.dart';
+import 'package:accounting/features/home_screen/presentation/view/screens/cashier.dart';
 import 'package:accounting/features/home_screen/presentation/view/screens/home_screen.dart';
 import 'package:accounting/features/home_screen/presentation/view_model/home_screen_cubit.dart';
 import 'package:accounting/features/restaurant/presentation/view_model/reastaurant_cubit.dart';
@@ -39,11 +41,9 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
 
-       home: HomeScreen(),
+       home: const CashierScreen(),
        //  onGenerateRoute: RouteGenerator.getRoute,
-        // onGenerateInitialRoutes: (navigator) => [
-        //   MaterialPageRoute(builder: (context) => HomeScreen()),
-        // ],
+       //  initialRoute: Routes.splashRoute,
         debugShowCheckedModeBanner: false,
       ),
     );

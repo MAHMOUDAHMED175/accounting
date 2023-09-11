@@ -22,7 +22,8 @@ Widget buttonsRestaurantPayAndKitchenAndDelete(bool data){
     children: [
       Padding(
         padding: const EdgeInsets.all(8.0),
-        child: DefaultButton(
+        child:  DefaultButton(
+                valueBorder: 0,
           color:data?ColorManager.green: ColorManager.grey200,
           onPress: () {},
           widget:data? Row(
@@ -67,7 +68,8 @@ Widget buttonsRestaurantPayAndKitchenAndDelete(bool data){
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
-              child: DefaultButton(
+              child:  DefaultButton(
+                valueBorder: 0,
                 color:data?ColorManager.blue200: ColorManager.grey200,
                 onPress: () {},
                 widget: Row(
@@ -96,7 +98,8 @@ Widget buttonsRestaurantPayAndKitchenAndDelete(bool data){
               width: AppSize.s8,
             ),
             Expanded(
-              child: DefaultButton(
+              child:  DefaultButton(
+                valueBorder: 0,
                 color:data?ColorManager.red200: ColorManager.grey200,
                 onPress: () {},
                 widget: Row(
