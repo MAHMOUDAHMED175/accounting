@@ -17,14 +17,14 @@ class HomeScreenCubit extends Cubit<HomeScreenState> {
 
   HomeScreenCubit() : super(HomeScreenInitial());
 
-  bool openSide = false;
+  bool openSide = true;
 
   void changeOpenSide() {
     openSide = !openSide;
     emit(changeOpenSideState());
   }
 
-  int currentIndex = 2;
+  int currentIndex = 0;
 
   List<Widget> screen = [
     const ControlBoardScreen(),
@@ -39,10 +39,10 @@ class HomeScreenCubit extends Cubit<HomeScreenState> {
 
 
 
-  int chartHomeScreenCurrentIndex = 3;
+  int chartHomeScreenCurrentIndex = 0;
 
   List<Widget> chartHomeScreenScreens = [
-     InvoiceManagement(),
+     const InvoiceManagement(),
      LosingMoney(),
     const NewInvoice(),
     const LatePayInvoice(),
@@ -60,8 +60,8 @@ class HomeScreenCubit extends Cubit<HomeScreenState> {
   int losingCurrentIndex = 0;
 
   List<Widget> losingScreens = [
-    ColumChartLosingCash(),
-    ColumChartLosingExpected(),
+    const ColumChartLosingCash(),
+    const ColumChartLosingExpected(),
     // const FavoritesScreen(),
   ];
 

@@ -25,7 +25,7 @@ class RestaurantCubit extends Cubit<RestaurantState> {
     emit(changeGridViewViewerState());
   }
 
-  int restaurantCuttentIndex=2;
+  int restaurantCuttentIndex=0;
   
   
   List<Widget> restaurantScreen=[
