@@ -1,3 +1,4 @@
+import 'package:accounting/features/accounting/view/screens/accounts_guide.dart';
 import 'package:accounting/features/accounting/view/screens/daily_restrictions.dart';
 import 'package:accounting/features/home_screen/presentation/view/screens/control_board.dart';
 import 'package:accounting/features/home_screen/presentation/view/widgets/charts_widget/content_charts/categorey_charts/invoice_management_widgets.dart';
@@ -24,11 +25,16 @@ class HomeScreenCubit extends Cubit<HomeScreenState> {
     emit(changeOpenSideState());
   }
 
-  int currentIndex = 0;
+  int currentIndex = 2;
 
   List<Widget> screen = [
+    //لوحة التحكم
     const ControlBoardScreen(),
+    //الحسابات
     const DailyRestrictionsScreen(),
+    const AccountsGuide(),
+
+    //المطاعم
     Restaurant(),
   ];
 
@@ -37,13 +43,11 @@ class HomeScreenCubit extends Cubit<HomeScreenState> {
     emit(changeIndexSideMenuState());
   }
 
-
-
   int chartHomeScreenCurrentIndex = 0;
 
   List<Widget> chartHomeScreenScreens = [
-     const InvoiceManagement(),
-     LosingMoney(),
+    const InvoiceManagement(),
+    LosingMoney(),
     const NewInvoice(),
     const LatePayInvoice(),
   ];
@@ -52,10 +56,6 @@ class HomeScreenCubit extends Cubit<HomeScreenState> {
     chartHomeScreenCurrentIndex = index;
     emit(chartHomeScreenChangeIndexSideMenuState());
   }
-
-
-
-
 
   int losingCurrentIndex = 0;
 
@@ -70,30 +70,10 @@ class HomeScreenCubit extends Cubit<HomeScreenState> {
     emit(losingChangeIndexState());
   }
 
-
-
-
-
-
-
-
-
-
-   bool light=true;
+  bool light = true;
 
   void lightChange() {
-    light =! light;
+    light = !light;
     emit(lightChangeState());
   }
-
-
-
-
-
-
-
-
-
-
-
 }
