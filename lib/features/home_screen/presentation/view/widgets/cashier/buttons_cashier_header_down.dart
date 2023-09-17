@@ -1,5 +1,4 @@
-
-import 'package:accounting/core/shared/widgets/defaulte_button.dart';
+import 'package:accounting/core/shared/widgets/defaulte_widget_button.dart';
 import 'package:accounting/core/utils/color_manager.dart';
 import 'package:accounting/core/utils/font_manager.dart';
 import 'package:accounting/core/utils/styles_manager.dart';
@@ -11,11 +10,11 @@ class ButtonsCashierHeaderDown extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return   Padding(
+    return Padding(
       padding: const EdgeInsets.all(AppPadding.p8),
       child: Row(
         children: [
-          DefaultButton(
+          DefaultWidgetButton(
             valueBorder: 0,
             height: AppSize.s40,
             widget: Row(
@@ -39,9 +38,8 @@ class ButtonsCashierHeaderDown extends StatelessWidget {
             color: ColorManager.blue,
           ),
           Padding(
-            padding: const EdgeInsets.only(
-                right: AppSize.s4, left: AppSize.s4),
-            child: DefaultButton(
+            padding: const EdgeInsets.only(right: AppSize.s4, left: AppSize.s4),
+            child: DefaultWidgetButton(
               valueBorder: 0,
               height: AppSize.s40,
               widget: Row(
@@ -57,8 +55,7 @@ class ButtonsCashierHeaderDown extends StatelessWidget {
                   Text(
                     ' بيان سعر',
                     style: getLightStyle(
-                        color: ColorManager.white,
-                        fontSize: FontSize.s12),
+                        color: ColorManager.white, fontSize: FontSize.s12),
                   ),
                 ],
               ),
@@ -67,9 +64,8 @@ class ButtonsCashierHeaderDown extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(
-                right: AppSize.s4, left: AppSize.s4),
-            child: DefaultButton(
+            padding: const EdgeInsets.only(right: AppSize.s4, left: AppSize.s4),
+            child: DefaultWidgetButton(
               valueBorder: 0,
               height: AppSize.s40,
               widget: Row(
@@ -85,8 +81,7 @@ class ButtonsCashierHeaderDown extends StatelessWidget {
                   Text(
                     ' تعليق',
                     style: getLightStyle(
-                        color: ColorManager.white,
-                        fontSize: FontSize.s12),
+                        color: ColorManager.white, fontSize: FontSize.s12),
                   ),
                 ],
               ),
@@ -95,9 +90,8 @@ class ButtonsCashierHeaderDown extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(
-                right: AppSize.s4, left: AppSize.s4),
-            child: DefaultButton(
+            padding: const EdgeInsets.only(right: AppSize.s4, left: AppSize.s4),
+            child: DefaultWidgetButton(
               valueBorder: 0,
               height: AppSize.s40,
               widget: Row(
@@ -113,8 +107,7 @@ class ButtonsCashierHeaderDown extends StatelessWidget {
                   Text(
                     'بيع أجل',
                     style: getLightStyle(
-                        color: ColorManager.white,
-                        fontSize: FontSize.s12),
+                        color: ColorManager.white, fontSize: FontSize.s12),
                   ),
                 ],
               ),
@@ -123,9 +116,8 @@ class ButtonsCashierHeaderDown extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(
-                right: AppSize.s4, left: AppSize.s4),
-            child: DefaultButton(
+            padding: const EdgeInsets.only(right: AppSize.s4, left: AppSize.s4),
+            child: DefaultWidgetButton(
               valueBorder: 0,
               height: AppSize.s40,
               widget: Row(
@@ -141,8 +133,7 @@ class ButtonsCashierHeaderDown extends StatelessWidget {
                   Text(
                     'بطاقه',
                     style: getLightStyle(
-                        color: ColorManager.white,
-                        fontSize: FontSize.s12),
+                        color: ColorManager.white, fontSize: FontSize.s12),
                   ),
                 ],
               ),
@@ -151,9 +142,8 @@ class ButtonsCashierHeaderDown extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(
-                right: AppSize.s4, left: AppSize.s4),
-            child: DefaultButton(
+            padding: const EdgeInsets.only(right: AppSize.s4, left: AppSize.s4),
+            child: DefaultWidgetButton(
               valueBorder: 0,
               height: AppSize.s40,
               widget: Row(
@@ -169,8 +159,7 @@ class ButtonsCashierHeaderDown extends StatelessWidget {
                   Text(
                     'طرق تحصيل متعدده',
                     style: getLightStyle(
-                        color: ColorManager.white,
-                        fontSize: FontSize.s12),
+                        color: ColorManager.white, fontSize: FontSize.s12),
                   ),
                 ],
               ),
@@ -179,9 +168,8 @@ class ButtonsCashierHeaderDown extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(
-                right: AppSize.s4, left: AppSize.s4),
-            child: DefaultButton(
+            padding: const EdgeInsets.only(right: AppSize.s4, left: AppSize.s4),
+            child: DefaultWidgetButton(
               valueBorder: 0,
               height: AppSize.s40,
               widget: Row(
@@ -197,8 +185,7 @@ class ButtonsCashierHeaderDown extends StatelessWidget {
                   Text(
                     'بيع كاش',
                     style: getLightStyle(
-                        color: ColorManager.white,
-                        fontSize: FontSize.s12),
+                        color: ColorManager.white, fontSize: FontSize.s12),
                   ),
                 ],
               ),
@@ -207,9 +194,8 @@ class ButtonsCashierHeaderDown extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(
-                right: AppSize.s4, left: AppSize.s4),
-            child: DefaultButton(
+            padding: const EdgeInsets.only(right: AppSize.s4, left: AppSize.s4),
+            child: DefaultWidgetButton(
               valueBorder: 0,
               height: AppSize.s40,
               widget: Row(
@@ -217,8 +203,7 @@ class ButtonsCashierHeaderDown extends StatelessWidget {
                   Text(
                     'الاجمالى ',
                     style: getLightStyle(
-                        color: ColorManager.black,
-                        fontSize: FontSize.s12),
+                        color: ColorManager.black, fontSize: FontSize.s12),
                   ),
                   const SizedBox(
                     width: 2,
@@ -235,9 +220,8 @@ class ButtonsCashierHeaderDown extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(
-                right: AppSize.s4, left: AppSize.s4),
-            child: DefaultButton(
+            padding: const EdgeInsets.only(right: AppSize.s4, left: AppSize.s4),
+            child: DefaultWidgetButton(
               valueBorder: 0,
               height: AppSize.s40,
               widget: Row(
@@ -253,8 +237,7 @@ class ButtonsCashierHeaderDown extends StatelessWidget {
                   Text(
                     'الغاء الطلب',
                     style: getLightStyle(
-                        color: ColorManager.white,
-                        fontSize: FontSize.s12),
+                        color: ColorManager.white, fontSize: FontSize.s12),
                   ),
                 ],
               ),
@@ -267,7 +250,7 @@ class ButtonsCashierHeaderDown extends StatelessWidget {
             padding: const EdgeInsets.only(
               right: AppSize.s4,
             ),
-            child: DefaultButton(
+            child: DefaultWidgetButton(
               valueBorder: 0,
               height: AppSize.s40,
               widget: Row(
@@ -283,8 +266,7 @@ class ButtonsCashierHeaderDown extends StatelessWidget {
                   Text(
                     'طباعه اخر فاتوره',
                     style: getLightStyle(
-                        color: ColorManager.white,
-                        fontSize: FontSize.s12),
+                        color: ColorManager.white, fontSize: FontSize.s12),
                   ),
                 ],
               ),
@@ -292,7 +274,7 @@ class ButtonsCashierHeaderDown extends StatelessWidget {
               color: ColorManager.red,
             ),
           ),
-          DefaultButton(
+          DefaultWidgetButton(
             valueBorder: 0,
             height: AppSize.s40,
             widget: Row(

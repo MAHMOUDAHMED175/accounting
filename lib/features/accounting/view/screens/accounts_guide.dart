@@ -1,5 +1,6 @@
 import 'package:accounting/core/utils/values_manager.dart';
 import 'package:accounting/features/accounting/view/widgets/accounts_guide_widgets/accounts_tree.dart';
+import 'package:accounting/features/accounting/view/widgets/accounts_guide_widgets/search_accounts_guide.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/utils/color_manager.dart';
@@ -12,7 +13,7 @@ class AccountsGuide extends StatelessWidget {
     return Scaffold(
       backgroundColor: ColorManager.white,
       body: Padding(
-        padding: const EdgeInsets.all(AppPadding.p40),
+        padding: const EdgeInsets.all(AppPadding.p20),
         child: Row(
           children: [
             Expanded(
@@ -25,7 +26,12 @@ class AccountsGuide extends StatelessWidget {
                     width: 0.4, // Border width
                   ),
                 ),
-                child: const MyTreeView(),
+                child: Column(
+                  children: [
+                    SearchAccountsGuide(),
+                    Expanded(child: MyTreeView()),
+                  ],
+                ),
               ),
             ),
             Expanded(

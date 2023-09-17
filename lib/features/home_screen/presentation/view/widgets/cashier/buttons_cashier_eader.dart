@@ -1,5 +1,3 @@
-
-import 'package:accounting/core/shared/widgets/defaulte_button.dart';
 import 'package:accounting/core/utils/color_manager.dart';
 import 'package:accounting/core/utils/font_manager.dart';
 import 'package:accounting/core/utils/styles_manager.dart';
@@ -7,6 +5,9 @@ import 'package:accounting/core/utils/values_manager.dart';
 import 'package:accounting/features/home_screen/presentation/view/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+
+import '../../../../../../core/shared/widgets/defaulte_widget_button.dart';
+
 class ButtonsCashierHeader extends StatefulWidget {
   const ButtonsCashierHeader({super.key});
 
@@ -20,7 +21,7 @@ class _ButtonsCashierHeaderState extends State<ButtonsCashierHeader> {
   String? selectedOption2 = 'الفرع الرئيسى';
   @override
   Widget build(BuildContext context) {
-    return           Padding(
+    return Padding(
       padding: const EdgeInsets.all(AppPadding.p8),
       child: Row(
         children: [
@@ -61,14 +62,13 @@ class _ButtonsCashierHeaderState extends State<ButtonsCashierHeader> {
           ),
           Text(
             DateFormat('a HH:mm dd/MM/yyyy').format(DateTime.now()),
-            style: getLightStyle(
-                color: ColorManager.grey, fontSize: FontSize.s16),
+            style:
+                getLightStyle(color: ColorManager.grey, fontSize: FontSize.s16),
           ),
           const Spacer(),
           Padding(
-            padding: const EdgeInsets.only(
-                right: AppSize.s4, left: AppSize.s4),
-            child: DefaultButton(
+            padding: const EdgeInsets.only(right: AppSize.s4, left: AppSize.s4),
+            child: DefaultWidgetButton(
               valueBorder: 6,
               height: AppSize.s40,
               widget: Row(
@@ -84,8 +84,7 @@ class _ButtonsCashierHeaderState extends State<ButtonsCashierHeader> {
                   Text(
                     ' الصفحه الرئيسه',
                     style: getLightStyle(
-                        color: ColorManager.white,
-                        fontSize: FontSize.s12),
+                        color: ColorManager.white, fontSize: FontSize.s12),
                   ),
                 ],
               ),
@@ -93,7 +92,7 @@ class _ButtonsCashierHeaderState extends State<ButtonsCashierHeader> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) =>  HomeScreen(),
+                    builder: (context) => HomeScreen(),
                   ),
                 );
               },
@@ -101,9 +100,8 @@ class _ButtonsCashierHeaderState extends State<ButtonsCashierHeader> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(
-                right: AppSize.s4, left: AppSize.s4),
-            child: DefaultButton(
+            padding: const EdgeInsets.only(right: AppSize.s4, left: AppSize.s4),
+            child: DefaultWidgetButton(
               valueBorder: 6,
               height: AppSize.s40,
               widget: Row(
@@ -119,8 +117,7 @@ class _ButtonsCashierHeaderState extends State<ButtonsCashierHeader> {
                   Text(
                     'مرتجع البيانات',
                     style: getLightStyle(
-                        color: ColorManager.white,
-                        fontSize: FontSize.s12),
+                        color: ColorManager.white, fontSize: FontSize.s12),
                   ),
                 ],
               ),
@@ -129,9 +126,8 @@ class _ButtonsCashierHeaderState extends State<ButtonsCashierHeader> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(
-                right: AppSize.s4, left: AppSize.s4),
-            child: DefaultButton(
+            padding: const EdgeInsets.only(right: AppSize.s4, left: AppSize.s4),
+            child: DefaultWidgetButton(
               valueBorder: 6,
               height: AppSize.s40,
               widget: Row(
@@ -147,8 +143,7 @@ class _ButtonsCashierHeaderState extends State<ButtonsCashierHeader> {
                   Text(
                     'اضافة مصاريف',
                     style: getLightStyle(
-                        color: ColorManager.white,
-                        fontSize: FontSize.s12),
+                        color: ColorManager.white, fontSize: FontSize.s12),
                   ),
                 ],
               ),
@@ -157,9 +152,8 @@ class _ButtonsCashierHeaderState extends State<ButtonsCashierHeader> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(
-                right: AppSize.s4, left: AppSize.s4),
-            child: DefaultButton(
+            padding: const EdgeInsets.only(right: AppSize.s4, left: AppSize.s4),
+            child: DefaultWidgetButton(
               valueBorder: 6,
               height: AppSize.s40,
               widget: Row(
@@ -175,8 +169,7 @@ class _ButtonsCashierHeaderState extends State<ButtonsCashierHeader> {
                   Text(
                     'مبيعات معلقه',
                     style: getLightStyle(
-                        color: ColorManager.white,
-                        fontSize: FontSize.s12),
+                        color: ColorManager.white, fontSize: FontSize.s12),
                   ),
                 ],
               ),
@@ -185,9 +178,8 @@ class _ButtonsCashierHeaderState extends State<ButtonsCashierHeader> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(
-                right: AppSize.s4, left: AppSize.s4),
-            child: DefaultButton(
+            padding: const EdgeInsets.only(right: AppSize.s4, left: AppSize.s4),
+            child: DefaultWidgetButton(
               valueBorder: 6,
               height: AppSize.s40,
               widget: Icon(
@@ -200,9 +192,8 @@ class _ButtonsCashierHeaderState extends State<ButtonsCashierHeader> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(
-                right: AppSize.s4, left: AppSize.s4),
-            child: DefaultButton(
+            padding: const EdgeInsets.only(right: AppSize.s4, left: AppSize.s4),
+            child: DefaultWidgetButton(
               valueBorder: 6,
               height: AppSize.s40,
               widget: Icon(
@@ -215,9 +206,8 @@ class _ButtonsCashierHeaderState extends State<ButtonsCashierHeader> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(
-                right: AppSize.s4, left: AppSize.s4),
-            child: DefaultButton(
+            padding: const EdgeInsets.only(right: AppSize.s4, left: AppSize.s4),
+            child: DefaultWidgetButton(
               valueBorder: 6,
               height: AppSize.s40,
               widget: Icon(
@@ -230,9 +220,8 @@ class _ButtonsCashierHeaderState extends State<ButtonsCashierHeader> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(
-                right: AppSize.s4, left: AppSize.s4),
-            child: DefaultButton(
+            padding: const EdgeInsets.only(right: AppSize.s4, left: AppSize.s4),
+            child: DefaultWidgetButton(
               valueBorder: 6,
               height: AppSize.s40,
               widget: Icon(
@@ -245,9 +234,8 @@ class _ButtonsCashierHeaderState extends State<ButtonsCashierHeader> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(
-                right: AppSize.s4, left: AppSize.s4),
-            child: DefaultButton(
+            padding: const EdgeInsets.only(right: AppSize.s4, left: AppSize.s4),
+            child: DefaultWidgetButton(
               valueBorder: 6,
               height: AppSize.s40,
               widget: Icon(
@@ -261,7 +249,6 @@ class _ButtonsCashierHeaderState extends State<ButtonsCashierHeader> {
           ),
         ],
       ),
-    )
-    ;
+    );
   }
 }

@@ -1,12 +1,4 @@
-
-
-
-
-
-
-
-
-import 'package:accounting/core/shared/widgets/defaulte_button.dart';
+import 'package:accounting/core/shared/widgets/defaulte_widget_button.dart';
 import 'package:accounting/core/utils/color_manager.dart';
 import 'package:accounting/core/utils/styles_manager.dart';
 import 'package:accounting/core/utils/values_manager.dart';
@@ -30,7 +22,7 @@ class _HeaderCashierItemsState extends State<HeaderCashierItems> {
         children: [
           Padding(
             padding: const EdgeInsets.only(left: AppPadding.p8),
-            child: DefaultButton(
+            child: DefaultWidgetButton(
               widget: Text(
                 'الكل',
                 style: getLightStyle(
@@ -53,7 +45,7 @@ class _HeaderCashierItemsState extends State<HeaderCashierItems> {
           ),
           Padding(
             padding: const EdgeInsets.only(left: AppPadding.p8),
-            child: DefaultButton(
+            child: DefaultWidgetButton(
               widget: Text(
                 'اكسسوارات',
                 style: getLightStyle(
@@ -76,7 +68,7 @@ class _HeaderCashierItemsState extends State<HeaderCashierItems> {
           ),
           Padding(
             padding: const EdgeInsets.only(left: AppPadding.p8),
-            child: DefaultButton(
+            child: DefaultWidgetButton(
               widget: Text(
                 'الالكترونيات',
                 style: getLightStyle(
@@ -99,7 +91,7 @@ class _HeaderCashierItemsState extends State<HeaderCashierItems> {
           ),
           Padding(
             padding: const EdgeInsets.only(left: AppPadding.p8),
-            child: DefaultButton(
+            child: DefaultWidgetButton(
               widget: Text(
                 'ملابس رجالى',
                 style: getLightStyle(
@@ -122,7 +114,7 @@ class _HeaderCashierItemsState extends State<HeaderCashierItems> {
           ),
           Padding(
             padding: const EdgeInsets.only(left: AppPadding.p8),
-            child: DefaultButton(
+            child: DefaultWidgetButton(
               widget: Text(
                 'منظفات',
                 style: getLightStyle(
@@ -145,7 +137,7 @@ class _HeaderCashierItemsState extends State<HeaderCashierItems> {
           ),
           Padding(
             padding: const EdgeInsets.only(left: AppPadding.p8),
-            child: DefaultButton(
+            child: DefaultWidgetButton(
               widget: Text(
                 'موبايلات',
                 style: getLightStyle(
