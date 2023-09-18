@@ -31,7 +31,7 @@ class HomeScreenCubit extends Cubit<HomeScreenState> {
     //لوحة التحكم
     const ControlBoardScreen(),
     //الحسابات
-    const DailyRestrictionsScreen(),
+    DailyRestrictionsScreen(),
     const AccountsGuide(),
 
     //المطاعم
