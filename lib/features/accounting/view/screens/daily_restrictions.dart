@@ -13,18 +13,21 @@ class DailyRestrictionsScreen extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: IconButton(onPressed: () {}, icon: const Icon(Icons.camera)),
+              child:
+                  IconButton(onPressed: () {}, icon: const Icon(Icons.camera)),
             ),
+            const Text('ddddd'),
+            const Text('ddddd'),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: IconButton(
-                  onPressed: () {
-                  },
-                  icon: const Icon(Icons.deck_sharp)),
+                  onPressed: () {}, icon: const Icon(Icons.donut_large)),
             ),
           ],
         ),
       ),
     );
   }
+
+  //1+1=3
 }
