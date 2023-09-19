@@ -17,6 +17,7 @@ class DailyRestrictionsScreen extends StatelessWidget {
                   IconButton(onPressed: () {}, icon: const Icon(Icons.camera)),
             ),
             const Text('ddddd'),
+            const Text('ddddd'),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: IconButton(
