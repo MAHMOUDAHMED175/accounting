@@ -35,7 +35,10 @@ class AccountsGuide extends StatelessWidget {
                 ),
               ),
             ),
-            Expanded(flex: 3, child: ListViewAccountsGuideScreen()),
+            Expanded(
+              flex: 3,
+              child: ListViewAccountsGuideScreen(),
+            ),
           ],
         ),
       ),

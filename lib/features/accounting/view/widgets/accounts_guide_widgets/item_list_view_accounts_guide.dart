@@ -3,7 +3,10 @@ import 'package:accounting/core/utils/font_manager.dart';
 import 'package:accounting/core/utils/styles_manager.dart';
 import 'package:accounting/core/utils/values_manager.dart';
 import 'package:accounting/features/accounting/view/screens/list_view_accounts_guide_sceen.dart';
+import 'package:accounting/features/accounting/view/widgets/accounts_guide_widgets/edit_account/dialog_edit_account_widget.dart';
 import 'package:flutter/material.dart';
+
+import 'delete_account/dialog_delete_account_widget.dart';
 
 Widget itemListViewAccountsGuide(context, index) => InkWell(
       onTap: () {
@@ -84,7 +87,9 @@ Widget itemListViewAccountsGuide(context, index) => InkWell(
                       ),
                       title: const Text('تعديل'),
                     ),
-                    onTap: () {},
+                    onTap: () {
+                      editAccountDialog(context);
+                    },
                   ),
                   //if this sub
                   PopupMenuItem<String>(
@@ -95,7 +100,9 @@ Widget itemListViewAccountsGuide(context, index) => InkWell(
                       ),
                       title: const Text('حذف'),
                     ),
-                    onTap: () {},
+                    onTap: () {
+                      deleteAccountDialog(context);
+                    },
                   ),
                 ];
               },

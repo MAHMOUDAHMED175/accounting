@@ -7,18 +7,20 @@ class CustomTextButton extends StatelessWidget {
     super.key,
     required this.backgroundColor,
     required this.textColor,
-    this.borderRadius,
+    this.valueDoubleBorderRadius,
     required this.text,
     this.fontSize,
     this.heightButton,
     this.onPressed,
+    this.width,
   });
 
   final String text;
   final Color backgroundColor;
   final Color textColor;
-  final BorderRadius? borderRadius;
+  final double? valueDoubleBorderRadius;
   final double? fontSize;
+  final double? width;
   final double? heightButton;
   final void Function()? onPressed;
 
@@ -26,6 +28,7 @@ class CustomTextButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: heightButton ?? AppSize.s40,
+      width: width ?? 100,
       child: TextButton(
         onPressed: onPressed,
         style: TextButton.styleFrom(
@@ -34,10 +37,9 @@ class CustomTextButton extends StatelessWidget {
             side: BorderSide(color: Colors.grey, width: 1.0),
             // إضافة حدود سوداء بسمك 2 بكسل
 
-            borderRadius: borderRadius ??
-                BorderRadius.circular(
-                  AppPadding.p12,
-                ),
+            borderRadius: BorderRadius.circular(
+              valueDoubleBorderRadius ?? AppPadding.p12,
+            ),
           ),
         ),
         child: Text(text,

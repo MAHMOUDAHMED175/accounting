@@ -1,14 +1,43 @@
-import 'package:accounting/core/shared/widgets/text_from_field_widget.dart';
+import 'package:accounting/core/shared/widgets/defaulte_widget_button.dart';
 import 'package:accounting/core/utils/color_manager.dart';
+import 'package:accounting/core/utils/font_manager.dart';
+import 'package:accounting/core/utils/styles_manager.dart';
 import 'package:accounting/core/utils/values_manager.dart';
+import 'package:accounting/features/accounting/view/widgets/accounts_guide_widgets/add_account/dialog_add_account_widget.dart';
+import 'package:accounting/features/accounting/view/widgets/accounts_guide_widgets/item_list_view_accounts_guide.dart';
 import 'package:flutter/material.dart';
 
-class ListViewAccountsGuideScreen extends StatelessWidget {
+class ListViewAccountsGuideScreen extends StatefulWidget {
   ListViewAccountsGuideScreen({super.key});
+
+  @override
+  State<ListViewAccountsGuideScreen> createState() =>
+      _ListViewAccountsGuideScreenState();
+}
+
+class _ListViewAccountsGuideScreenState
+    extends State<ListViewAccountsGuideScreen> {
   TextEditingController accountTypeController = TextEditingController();
+
   TextEditingController accountNameArabicController = TextEditingController();
+
   TextEditingController accountNameEnglishController = TextEditingController();
+
   TextEditingController accountMainChooseController = TextEditingController();
+
+  TextEditingController accountCodeController = TextEditingController();
+
+  List<String> listTypeAccountDropDown = ["حساب فرعى", "حساب رئيسى"];
+
+  String? valueTypeAccountDropDown = "حساب فرعى";
+
+  List<String> listMainAccountDropDown = ["من فضلك اختر", "ارباح", "ديون"];
+
+  String? valueMainAccountDropDown = "من فضلك اختر";
+
+  String selectedOption =
+      ''; // هذا المتغير سيحتوي على القيمة المختارة (دائن أو مدين)
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,120 +52,42 @@ class ListViewAccountsGuideScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              width: double.maxFinite,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(4),
-                color: ColorManager.white,
+            Expanded(
+              child: ListView.separated(
+                itemBuilder: (context, index) {
+                  return itemListViewAccountsGuide(context, index);
+                },
+                separatorBuilder: (context, index) {
+                  return const Divider();
+                },
+                itemCount: 10,
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+            ),
+            DefaultWidgetButton(
+              height: AppSize.s50,
+              color: ColorManager.white,
+              widget: Row(
                 children: [
-                  Container(
-                    color: ColorManager.blue200,
-                    child: Padding(
-                      padding: const EdgeInsets.all(AppPadding.p16),
-                      child: Row(
-                        children: [
-                          const Text(
-                              'أضف حساب'), // تعديل نص الحوار حسب احتياجاتك
-                          const Spacer(),
-                          IconButton(
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                              icon: Icon(
-                                Icons.cancel_outlined,
-                                color: ColorManager.grey,
-                              ))
-                        ],
-                      ),
-                    ),
+                  Icon(
+                    Icons.add_circle_outline,
+                    color: ColorManager.blue,
+                    size: FontSize.s20,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(AppPadding.p8),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text("نوع الحساب"),
-                              SizedBox(
-                                height: AppSize.s8,
-                              ),
-                              SizedBox(
-                                height: 35,
-                                child: defaultFormField(
-                                    controller: accountTypeController,
-                                    type: TextInputType.text),
-                              ),
-                            ],
-                          ),
-                        ),
-                        SizedBox(
-                          width: AppSize.s12,
-                        ),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text("نوع الحساب"),
-                              SizedBox(
-                                height: AppSize.s8,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
+                  const SizedBox(
+                    width: AppSize.s12,
+                  ),
+                  Text(
+                    'اضف حساب',
+                    style: getBoldStyle(
+                        color: ColorManager.blue, fontSize: FontSize.s16),
                   )
                 ],
               ),
-            )
-            // Expanded(
-            //   child: ListView.separated(
-            //     itemBuilder: (context, index) {
-            //       return itemListViewAccountsGuide(context, index);
-            //     },
-            //     separatorBuilder: (context, index) {
-            //       return const Divider();
-            //     },
-            //     itemCount: 10,
-            //   ),
-            // ),
-            // DefaultWidgetButton(
-            //   height: AppSize.s50,
-            //   color: ColorManager.white,
-            //   widget: Row(
-            //     children: [
-            //       Icon(
-            //         Icons.add_circle_outline,
-            //         color: ColorManager.blue,
-            //         size: FontSize.s20,
-            //       ),
-            //       const SizedBox(
-            //         width: AppSize.s12,
-            //       ),
-            //       Text(
-            //         'اضف حساب',
-            //         style: getBoldStyle(
-            //             color: ColorManager.blue, fontSize: FontSize.s16),
-            //       )
-            //     ],
-            //   ),
-            //   onPress: () {
-            //     addAccountDialog(
-            //       context,
-            //       accountTypeController,
-            //       accountNameArabicController,
-            //       accountNameEnglishController,
-            //       accountMainChooseController,
-            //     );
-            //   },
-            //   valueBorder: 0,
-            // ),
+              onPress: () {
+                addAccountDialog(context);
+              },
+              valueBorder: 0,
+            ),
           ],
         ),
       ),
