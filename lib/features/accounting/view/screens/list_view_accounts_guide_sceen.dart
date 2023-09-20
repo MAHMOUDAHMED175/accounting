@@ -35,8 +35,7 @@ class _ListViewAccountsGuideScreenState
 
   String? valueMainAccountDropDown = "من فضلك اختر";
 
-  String selectedOption =
-      ''; // هذا المتغير سيحتوي على القيمة المختارة (دائن أو مدين)
+  String selectedOption = '';
 
   @override
   Widget build(BuildContext context) {
@@ -52,6 +51,15 @@ class _ListViewAccountsGuideScreenState
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            //if no data
+            //            Padding(
+            //               padding: const EdgeInsets.all(AppPadding.p20),
+            //               child: Text(
+            //                 'هذا الحساب فارغ',
+            //                 style: getBoldStyle(
+            //                     color: ColorManager.black, fontSize: FontSize.s20),
+            //               ),
+            //             ),
             Expanded(
               child: ListView.separated(
                 itemBuilder: (context, index) {
@@ -94,15 +102,3 @@ class _ListViewAccountsGuideScreenState
     );
   }
 }
-
-// HeaderDateTimeAccountsGuide(),
-
-// // no data
-// Padding(
-// padding: const EdgeInsets.all(AppPadding.p20),
-// child: Text(
-// 'هذا الحساب فارغ',
-// style: getBoldStyle(
-// color: ColorManager.black, fontSize: FontSize.s20),
-// ),
-// ),
