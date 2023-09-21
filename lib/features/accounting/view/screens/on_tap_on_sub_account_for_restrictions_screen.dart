@@ -22,7 +22,7 @@ class OnTapOnSubAccountForRestrictions extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             HeaderDateTimeAccountsGuide(),
-            SizedBox(
+            const SizedBox(
               height: AppSize.s28,
             ),
             headerAccountRestrictions(),

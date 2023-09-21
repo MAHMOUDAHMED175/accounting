@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 OverlayEntry? overlayEntry;
 
 void showOverlay(
-    {required context, required keyWidget, required Widget widget}) {
+    {required BuildContext context, required keyWidget, required widget}) {
   final overlayState = Overlay.of(context);
-
   overlayEntry = OverlayEntry(
     builder: (context) {
       final containerContext = keyWidget.currentContext;
@@ -14,12 +13,8 @@ void showOverlay(
         final position = renderBox.localToGlobal(Offset.zero);
         final containerSize = renderBox.size;
 
-        return Positioned(
-          top: position.dy,
-          left: position.dx,
-          width: containerSize.width,
-          height: containerSize.height,
-          child: Stack(children: [
+        return Stack(
+          children: [
             GestureDetector(
               onTap: () {
                 overlayEntry?.remove();
@@ -28,8 +23,14 @@ void showOverlay(
                 color: Colors.black.withOpacity(0.6),
               ),
             ),
-            widget,
-          ]),
+            Positioned(
+              top: position.dy,
+              left: position.dx,
+              width: containerSize.width,
+              height: containerSize.height,
+              child: widget,
+            ),
+          ],
         );
       } else {
         // Return an empty container if the context is null

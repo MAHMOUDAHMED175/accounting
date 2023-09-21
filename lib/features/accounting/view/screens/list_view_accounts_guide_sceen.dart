@@ -1,13 +1,13 @@
-import 'package:accounting/core/functions/show_overlay.dart';
 import 'package:accounting/core/shared/widgets/defaulte_widget_button.dart';
 import 'package:accounting/core/utils/color_manager.dart';
 import 'package:accounting/core/utils/font_manager.dart';
 import 'package:accounting/core/utils/styles_manager.dart';
 import 'package:accounting/core/utils/values_manager.dart';
 import 'package:accounting/features/accounting/view/widgets/accounts_guide_widgets/item_list_view_accounts_guide.dart';
+import 'package:accounting/features/home_screen/presentation/view/screens/content_screens.dart';
 import 'package:flutter/material.dart';
 
-import '../../../home_screen/presentation/view/screens/home_screen.dart';
+import '../../../../core/functions/show_overlay.dart';
 import '../widgets/accounts_guide_widgets/add_account/dialog_add_account_widget.dart';
 
 class ListViewAccountsGuideScreen extends StatefulWidget {
@@ -90,16 +90,17 @@ class _ListViewAccountsGuideScreenState
                   Text(
                     'اضف حساب',
                     style: getBoldStyle(
-                        color: ColorManager.blue, fontSize: FontSize.s16,
+                      color: ColorManager.blue,
+                      fontSize: FontSize.s16,
                     ),
                   ),
                 ],
               ),
               onPress: () {
                 showOverlay(
-                    context: context,
-                    keyWidget: scaffoldKey,
-                    widget: const AddAccountDialog(),
+                  context: context,
+                  keyWidget: scaffoldKey,
+                  widget: AddAccountDialog(context),
                 );
               },
               valueBorder: 0,

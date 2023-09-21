@@ -1,3 +1,4 @@
+import 'package:accounting/core/functions/show_overlay.dart';
 import 'package:accounting/core/shared/widgets/custom_text_button.dart';
 import 'package:accounting/core/utils/color_manager.dart';
 import 'package:accounting/core/utils/font_manager.dart';
@@ -33,7 +34,7 @@ class ContentDeleteAccountDialog extends StatelessWidget {
                       const Spacer(),
                       IconButton(
                           onPressed: () {
-                            Navigator.pop(context);
+                            overlayEntry?.remove();
                           },
                           icon: Icon(
                             Icons.cancel_outlined,

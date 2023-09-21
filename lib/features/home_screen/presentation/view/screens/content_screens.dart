@@ -1,10 +1,13 @@
 import 'package:accounting/core/utils/responsive.dart';
 import 'package:accounting/core/utils/routes_manager.dart';
 import 'package:accounting/features/home_screen/presentation/view/screens/home_screen.dart';
-import 'package:accounting/features/home_screen/presentation/view/widgets/header_home_screen_widgets/header_home_screen.dart';
 import 'package:accounting/features/home_screen/presentation/view/widgets/side_menu_widgets/side_menu.dart';
 import 'package:accounting/features/home_screen/presentation/view_model/home_screen_cubit.dart';
 import 'package:flutter/material.dart';
+
+import '../widgets/header_home_screen_widgets/header_home_screen.dart';
+
+final GlobalKey scaffoldKey = GlobalKey();
 
 class ContentGridViewScreens extends StatelessWidget {
   ContentGridViewScreens({super.key, required this.child});
@@ -22,21 +25,18 @@ class ContentGridViewScreens extends StatelessWidget {
             child: Row(
               children: [
                 if (Responsive.isDesktop(context))
-                  if (HomeScreenCubit.get(context).openSide)
-                    sideMenu(context), // إضافة Side Menu هنا
+                  if (HomeScreenCubit.get(context).openSide) sideMenu(context),
                 Expanded(
+                  key: scaffoldKey,
                   child: Column(
                     children: [
-                      HeaderHomeScreen(), // إضافة الHeader هنا
+                      const HeaderHomeScreen(),
                       WillPopScope(
                         onWillPop: () async {
-                          // التحقق مما إذا كان هناك شاشات سابقة في تاريخ الملاحة
                           if (navigatorKey.currentState!.canPop()) {
-                            // إذا كان هناك شاشات سابقة، عود إلى الشاشة السابقة
                             navigatorKey.currentState?.pop();
-                            return false; // لا تترك الصفحة الحالية
+                            return false;
                           } else {
-                            // إذا لم يكن هناك شاشات سابقة، اترك الصفحة الحالية
                             HomeScreenCubit.get(context).currentIndex = 0;
                             Navigator.push(
                                 context,
