@@ -12,6 +12,8 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
+GlobalKey scaffoldKey = GlobalKey();
+
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
@@ -19,6 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
       listener: (context, state) {},
       builder: (context, state) {
         return Scaffold(
+          key: scaffoldKey,
           body: ContentGridViewScreens(
             // استخدام ContentGridViewScreens هنا
             child: HomeScreenCubit.get(context)

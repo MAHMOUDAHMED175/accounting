@@ -1,3 +1,4 @@
+import 'package:accounting/core/functions/show_overlay.dart';
 import 'package:accounting/core/shared/widgets/custom_text_button.dart';
 import 'package:accounting/core/shared/widgets/text_from_field_widget.dart';
 import 'package:accounting/core/utils/color_manager.dart';
@@ -35,6 +36,7 @@ class _ContentAddAccountDialogState extends State<ContentAddAccountDialog> {
   String? valueMainAccountDropDown = "من فضلك اختر";
 
   String selectedOption = '';
+
   // هذا المتغير سيحتوي على القيمة المختارة (دائن أو مدين)
   @override
   Widget build(BuildContext context) {
@@ -72,7 +74,7 @@ class _ContentAddAccountDialogState extends State<ContentAddAccountDialog> {
                             const Spacer(),
                             IconButton(
                                 onPressed: () {
-                                  Navigator.pop(context);
+                                  overlayEntry?.remove();
                                 },
                                 icon: Icon(
                                   Icons.cancel_outlined,
