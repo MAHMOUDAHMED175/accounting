@@ -1,4 +1,6 @@
+import 'package:accounting/core/network/remote/dioHelper.dart';
 import 'package:accounting/core/utils/color_manager.dart';
+import 'package:accounting/features/accounting/view_model/managers/cubit/accounts_cubit.dart';
 import 'package:accounting/features/home_screen/presentation/view/screens/home_screen.dart';
 import 'package:accounting/features/home_screen/presentation/view_model/home_screen_cubit.dart';
 import 'package:accounting/features/restaurant/presentation/view_model/reastaurant_cubit.dart';
@@ -7,6 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() async {
+  await DioHelper.Init();
   runApp(const MyApp());
 }
 
@@ -20,6 +23,7 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => HomeScreenCubit()),
         BlocProvider(create: (context) => RestaurantCubit()),
+        BlocProvider(create: (context) => AccountsCubit()..productTree()),
       ],
       child: MaterialApp(
         title: 'Accounting',

@@ -66,7 +66,7 @@ class _ListViewAccountsGuideScreenState
             Expanded(
               child: ListView.separated(
                 itemBuilder: (context, index) {
-                  return itemListViewAccountsGuide(context, index);
+                  return ItemListViewAccountsGuide();
                 },
                 separatorBuilder: (context, index) {
                   return const Divider();

@@ -1,16 +1,23 @@
+import 'package:accounting/core/functions/show_overlay.dart';
 import 'package:accounting/core/utils/color_manager.dart';
 import 'package:accounting/core/utils/font_manager.dart';
 import 'package:accounting/core/utils/styles_manager.dart';
-import 'package:accounting/core/utils/values_manager.dart';
-import 'package:accounting/features/accounting/view/screens/list_view_accounts_guide_sceen.dart';
+import 'package:accounting/features/accounting/view/widgets/accounts_guide_widgets/delete_account/dialog_delete_account_widget.dart';
+import 'package:accounting/features/accounting/view/widgets/accounts_guide_widgets/edit_account/dialog_edit_account_widget.dart';
+import 'package:accounting/features/home_screen/presentation/view/screens/content_screens.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../core/functions/show_overlay.dart';
-import '../../../../home_screen/presentation/view/screens/content_screens.dart';
-import 'delete_account/dialog_delete_account_widget.dart';
-import 'edit_account/dialog_edit_account_widget.dart';
+import '../../../../../core/utils/values_manager.dart';
+import '../../screens/list_view_accounts_guide_sceen.dart';
 
-Widget itemListViewAccountsGuide(context, index) => InkWell(
+class ItemListViewAccountsGuide extends StatelessWidget {
+  ItemListViewAccountsGuide({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
       onTap: () {
         Navigator.push(
           context,
@@ -35,7 +42,7 @@ Widget itemListViewAccountsGuide(context, index) => InkWell(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'الاصول',
+                  " errorMessageModel.status_message",
                   style: getBoldStyle(
                       color: ColorManager.black, fontSize: FontSize.s18),
                 ),
@@ -121,3 +128,5 @@ Widget itemListViewAccountsGuide(context, index) => InkWell(
         ),
       ),
     );
+  }
+}
