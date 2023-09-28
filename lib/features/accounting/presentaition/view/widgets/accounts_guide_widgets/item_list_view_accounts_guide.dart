@@ -1,28 +1,31 @@
-import 'package:accounting/core/functions/show_overlay.dart';
 import 'package:accounting/core/utils/color_manager.dart';
 import 'package:accounting/core/utils/font_manager.dart';
 import 'package:accounting/core/utils/styles_manager.dart';
-import 'package:accounting/features/accounting/view/widgets/accounts_guide_widgets/delete_account/dialog_delete_account_widget.dart';
-import 'package:accounting/features/accounting/view/widgets/accounts_guide_widgets/edit_account/dialog_edit_account_widget.dart';
-import 'package:accounting/features/home_screen/presentation/view/screens/content_screens.dart';
+import 'package:accounting/features/accounting/data/accounts_model/values.dart';
+import 'package:accounting/features/accounting/presentaition/view/screens/list_view_accounts_guide_sceen.dart';
+import 'package:accounting/features/accounting/presentaition/view_model/managers/cubit/accounts_cubit.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../core/utils/values_manager.dart';
-import '../../screens/list_view_accounts_guide_sceen.dart';
+import '../../../../../../core/utils/values_manager.dart';
 
-class ItemListViewAccountsGuide extends StatelessWidget {
-  ItemListViewAccountsGuide({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
+Widget itemListViewAccountsGuide(
+        {required context,
+        required AccountModelValues accountValueModel,
+        required index}) =>
+    InkWell(
       onTap: () {
         Navigator.push(
           context,
           MaterialPageRoute(
-              builder: (context) => ListViewAccountsGuideScreen()),
+              builder: (context) => listViewScreenAccounts(
+                  listOfAccounts: AccountsCubit.get(context)
+                      .accountModel!
+                      .values!
+                      .where(
+                        (item) =>
+                            accountValueModel.idInteger! == item.parentId!,
+                      )
+                      .toList())),
         );
       },
       hoverColor: ColorManager.primary,
@@ -31,9 +34,13 @@ class ItemListViewAccountsGuide extends StatelessWidget {
         child: Row(
           children: [
             Icon(
-              Icons.folder,
+              accountValueModel.haveSub == true
+                  ? Icons.folder
+                  : Icons.file_copy,
               size: AppSize.s28,
-              color: ColorManager.blue,
+              color: accountValueModel.haveSub == true
+                  ? ColorManager.blue
+                  : ColorManager.grey,
             ),
             const SizedBox(
               width: AppSize.s8,
@@ -42,7 +49,7 @@ class ItemListViewAccountsGuide extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  " errorMessageModel.status_message",
+                  accountValueModel.arabicName!,
                   style: getBoldStyle(
                       color: ColorManager.black, fontSize: FontSize.s18),
                 ),
@@ -50,7 +57,7 @@ class ItemListViewAccountsGuide extends StatelessWidget {
                   height: AppSize.s8,
                 ),
                 Text(
-                  '#1',
+                  "${accountValueModel.idInteger}",
                   style: getBoldStyle(
                     color: ColorManager.grey400,
                   ),
@@ -97,11 +104,11 @@ class ItemListViewAccountsGuide extends StatelessWidget {
                       title: const Text('تعديل'),
                     ),
                     onTap: () {
-                      showOverlay(
-                        context: context,
-                        keyWidget: scaffoldKey,
-                        widget: editAccountDialog(context),
-                      );
+                      // showOverlay(
+                      //   context: context,
+                      //   keyWidget: scaffoldKey,
+                      //   widget: editAccountDialog(context),
+                      // );
                     },
                   ),
                   //if this sub
@@ -114,11 +121,11 @@ class ItemListViewAccountsGuide extends StatelessWidget {
                       title: const Text('حذف'),
                     ),
                     onTap: () {
-                      showOverlay(
-                        context: context,
-                        keyWidget: scaffoldKey,
-                        widget: deleteAccountDialog(context),
-                      );
+                      // showOverlay(
+                      //   context: context,
+                      //   keyWidget: scaffoldKey,
+                      //   widget: deleteAccountDialog(context),
+                      // );
                     },
                   ),
                 ];
@@ -128,5 +135,3 @@ class ItemListViewAccountsGuide extends StatelessWidget {
         ),
       ),
     );
-  }
-}

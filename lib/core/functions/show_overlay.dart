@@ -2,10 +2,15 @@ import 'package:flutter/material.dart';
 
 OverlayEntry? overlayEntry;
 
-void showOverlay(
-    {required BuildContext context, required keyWidget, required widget}) {
-  final overlayState = Overlay.of(context);
+void showOverlay({
+  required BuildContext overlayContext,
+  required GlobalKey keyWidget,
+  required widget,
+}) {
+  final overlayState = Overlay.of(overlayContext);
+
   overlayEntry = OverlayEntry(
+    maintainState: true,
     builder: (context) {
       final containerContext = keyWidget.currentContext;
       if (containerContext != null) {
@@ -20,7 +25,7 @@ void showOverlay(
                 overlayEntry?.remove();
               },
               child: Container(
-                color: Colors.black.withOpacity(0.6),
+                color: Colors.black.withOpacity(0.4),
               ),
             ),
             Positioned(

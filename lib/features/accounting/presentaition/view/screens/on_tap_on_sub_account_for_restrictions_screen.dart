@@ -1,7 +1,7 @@
 import 'package:accounting/core/utils/color_manager.dart';
 import 'package:accounting/core/utils/values_manager.dart';
-import 'package:accounting/features/accounting/view/widgets/accounts_guide_widgets/header_account_restrictions.dart';
-import 'package:accounting/features/accounting/view/widgets/accounts_guide_widgets/header_date_time_accounts_guide.dart';
+import 'package:accounting/features/accounting/presentaition/view/widgets/accounts_guide_widgets/header_account_restrictions.dart';
+import 'package:accounting/features/accounting/presentaition/view/widgets/accounts_guide_widgets/header_date_time_accounts_guide.dart';
 import 'package:flutter/material.dart';
 
 class OnTapOnSubAccountForRestrictions extends StatelessWidget {

@@ -1,5 +1,3 @@
-import 'package:accounting/features/accounting/view/screens/accounts_guide.dart';
-import 'package:accounting/features/accounting/view/screens/daily_restrictions.dart';
 import 'package:accounting/features/home_screen/presentation/view/screens/control_board.dart';
 import 'package:accounting/features/home_screen/presentation/view/widgets/charts_widget/content_charts/categorey_charts/invoice_management_widgets.dart';
 import 'package:accounting/features/home_screen/presentation/view/widgets/charts_widget/content_charts/categorey_charts/late_pay_invoice.dart';
@@ -11,6 +9,8 @@ import 'package:accounting/features/restaurant/presentation/view/screens/restaur
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../accounting/presentaition/view/screens/accounts_guide.dart';
+import '../../../accounting/presentaition/view/screens/daily_restrictions.dart';
 import 'home_screen_state.dart';
 
 class HomeScreenCubit extends Cubit<HomeScreenState> {
@@ -33,8 +33,8 @@ class HomeScreenCubit extends Cubit<HomeScreenState> {
     //الحسابات
     DailyRestrictionsScreen(),
     const AccountsGuide(),
-
     //المطاعم
+
     Restaurant(),
   ];
 

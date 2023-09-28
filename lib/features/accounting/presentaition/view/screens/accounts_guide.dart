@@ -1,10 +1,11 @@
+import 'package:accounting/core/utils/color_manager.dart';
 import 'package:accounting/core/utils/values_manager.dart';
-import 'package:accounting/features/accounting/view/screens/list_view_accounts_guide_sceen.dart';
-import 'package:accounting/features/accounting/view/widgets/accounts_guide_widgets/accounts_tree.dart';
-import 'package:accounting/features/accounting/view/widgets/accounts_guide_widgets/search_accounts_guide.dart';
+import 'package:accounting/features/accounting/presentaition/view/screens/list_view_accounts_guide_sceen.dart';
+import 'package:accounting/features/accounting/presentaition/view/widgets/accounts_guide_widgets/accounts_tree.dart';
+import 'package:accounting/features/home_screen/presentation/view/screens/content_screens.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/utils/color_manager.dart';
+import '../widgets/accounts_guide_widgets/search_accounts_guide.dart';
 
 class AccountsGuide extends StatelessWidget {
   const AccountsGuide({super.key});
@@ -37,7 +38,15 @@ class AccountsGuide extends StatelessWidget {
             ),
             Expanded(
               flex: 3,
-              child: ListViewAccountsGuideScreen(),
+              child: Navigator(
+                key: ContentGridViewScreens.listNavigatorKey,
+                onGenerateRoute: (settings) {
+                  return MaterialPageRoute(
+                    builder: (context) =>
+                        ListViewAccountsGuideScreen(), // Replace with your list screen widget
+                  );
+                },
+              ),
             ),
           ],
         ),

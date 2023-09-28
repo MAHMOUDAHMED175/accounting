@@ -7,11 +7,12 @@ import 'package:flutter/material.dart';
 
 import '../widgets/header_home_screen_widgets/header_home_screen.dart';
 
-final GlobalKey scaffoldKey = GlobalKey();
-
 class ContentGridViewScreens extends StatelessWidget {
   ContentGridViewScreens({super.key, required this.child});
 
+  static GlobalKey scaffoldKey = GlobalKey();
+  static GlobalKey<NavigatorState> listNavigatorKey =
+      GlobalKey<NavigatorState>();
   final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
   final Widget child;
@@ -33,18 +34,36 @@ class ContentGridViewScreens extends StatelessWidget {
                       const HeaderHomeScreen(),
                       WillPopScope(
                         onWillPop: () async {
-                          if (navigatorKey.currentState!.canPop()) {
+                          if (listNavigatorKey.currentState!.canPop()) {
+                            listNavigatorKey.currentState?.pop();
+                            return false;
+                          } else if (navigatorKey.currentState!.canPop()) {
                             navigatorKey.currentState?.pop();
                             return false;
                           } else {
                             HomeScreenCubit.get(context).currentIndex = 0;
                             Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (_) => const HomeScreen()));
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => HomeScreen(),
+                              ),
+                            );
                             return false;
                           }
                         },
+                        // onWillPop: () async {
+                        //   if (navigatorKey.currentState!.canPop()) {
+                        //     navigatorKey.currentState?.pop();
+                        //     return false;
+                        //   } else {
+                        //     HomeScreenCubit.get(context).currentIndex = 0;
+                        //     Navigator.push(
+                        //         context,
+                        //         MaterialPageRoute(
+                        //             builder: (_) => HomeScreen()));
+                        //     return false;
+                        //   }
+                        // },
                         child: Expanded(
                           child: Navigator(
                             key: navigatorKey,

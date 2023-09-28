@@ -1,4 +1,3 @@
-import 'package:accounting/core/functions/show_overlay.dart';
 import 'package:accounting/core/shared/widgets/custom_text_button.dart';
 import 'package:accounting/core/shared/widgets/text_from_field_widget.dart';
 import 'package:accounting/core/utils/color_manager.dart';
@@ -66,7 +65,7 @@ class _ContentEditAccountDialogState extends State<ContentEditAccountDialog> {
                             const Spacer(),
                             IconButton(
                                 onPressed: () {
-                                  overlayEntry?.remove();
+                                  // overlayEntry?.remove();
                                 },
                                 icon: Icon(
                                   Icons.cancel_outlined,

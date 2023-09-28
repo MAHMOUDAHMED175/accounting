@@ -1,11 +1,10 @@
-import 'package:accounting/core/functions/show_overlay.dart';
 import 'package:accounting/core/shared/widgets/custom_text_button.dart';
 import 'package:accounting/core/utils/color_manager.dart';
 import 'package:accounting/core/utils/font_manager.dart';
 import 'package:accounting/core/utils/styles_manager.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../../core/utils/values_manager.dart';
+import '../../../../../../../core/utils/values_manager.dart';
 
 class ContentDeleteAccountDialog extends StatelessWidget {
   // هذا المتغير سيحتوي على القيمة المختارة (دائن أو مدين)
@@ -34,7 +33,7 @@ class ContentDeleteAccountDialog extends StatelessWidget {
                       const Spacer(),
                       IconButton(
                           onPressed: () {
-                            overlayEntry?.remove();
+                            // overlayEntry?.remove();
                           },
                           icon: Icon(
                             Icons.cancel_outlined,

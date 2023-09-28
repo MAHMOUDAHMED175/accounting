@@ -3,7 +3,6 @@ import 'package:accounting/core/utils/font_manager.dart';
 import 'package:accounting/core/utils/strings_manager.dart';
 import 'package:accounting/core/utils/styles_manager.dart';
 import 'package:accounting/core/utils/values_manager.dart';
-import 'package:accounting/features/accounting/view_model/managers/cubit/accounts_cubit.dart';
 import 'package:accounting/features/home_screen/presentation/view/screens/cashier.dart';
 import 'package:accounting/features/home_screen/presentation/view_model/home_screen_cubit.dart';
 import 'package:flutter/material.dart';
@@ -23,8 +22,8 @@ class HeaderHomeScreen extends StatelessWidget {
           children: [
             IconButton(
               onPressed: () {
-                AccountsCubit.get(context).productTree();
-
+                // AccountsCubit.get(context).productTree();
+                //
                 HomeScreenCubit.get(context).changeOpenSide();
 
                 // print("${HomeScreenCubit.get(context).openSide} ");
@@ -81,7 +80,7 @@ class HeaderHomeScreen extends StatelessWidget {
             ),
             IconButton(
               onPressed: () {
-                AccountsCubit.get(context).productTree();
+                // AccountsCubit.get(context).productTree();
               },
               icon: Icon(
                 Icons.payments_outlined,

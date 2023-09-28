@@ -1,6 +1,6 @@
 import 'package:accounting/core/network/remote/dioHelper.dart';
+import 'package:accounting/core/utils/blocOpserver.dart';
 import 'package:accounting/core/utils/color_manager.dart';
-import 'package:accounting/features/accounting/view_model/managers/cubit/accounts_cubit.dart';
 import 'package:accounting/features/home_screen/presentation/view/screens/home_screen.dart';
 import 'package:accounting/features/home_screen/presentation/view_model/home_screen_cubit.dart';
 import 'package:accounting/features/restaurant/presentation/view_model/reastaurant_cubit.dart';
@@ -8,8 +8,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
+import 'features/accounting/presentaition/view_model/managers/cubit/accounts_cubit.dart';
+
 void main() async {
-  await DioHelper.Init();
+  WidgetsFlutterBinding.ensureInitialized();
+  Bloc.observer = MyBlocObserver();
+  await DioHelper.initial();
   runApp(const MyApp());
 }
 
@@ -23,7 +27,7 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => HomeScreenCubit()),
         BlocProvider(create: (context) => RestaurantCubit()),
-        BlocProvider(create: (context) => AccountsCubit()..productTree()),
+        BlocProvider(create: (context) => AccountsCubit()..getAccountsTree()),
       ],
       child: MaterialApp(
         title: 'Accounting',
@@ -42,7 +46,7 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
 
-        home: const HomeScreen(),
+        home: HomeScreen(),
         // onGenerateRoute: RouteGenerator.getRoute,
         // initialRoute: Routes.splashRoute,
         debugShowCheckedModeBanner: false,

@@ -7,8 +7,6 @@ import 'package:accounting/core/utils/styles_manager.dart';
 import 'package:accounting/core/utils/values_manager.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../../core/functions/show_overlay.dart';
-
 class ContentAddAccountDialog extends StatefulWidget {
   const ContentAddAccountDialog({super.key});
 
@@ -64,7 +62,7 @@ class _ContentAddAccountDialogState extends State<ContentAddAccountDialog> {
                       const Spacer(),
                       IconButton(
                           onPressed: () {
-                            overlayEntry?.remove();
+                            // overlayEntry?.remove();
                           },
                           icon: Icon(
                             Icons.cancel_outlined,
@@ -278,6 +276,7 @@ class _ContentAddAccountDialogState extends State<ContentAddAccountDialog> {
                   ],
                 ),
               ),
+              //bad code need to refactor
               if (Responsive.isDesktop(context) || Responsive.isTablet(context))
                 Padding(
                   padding: const EdgeInsets.all(AppPadding.p8),

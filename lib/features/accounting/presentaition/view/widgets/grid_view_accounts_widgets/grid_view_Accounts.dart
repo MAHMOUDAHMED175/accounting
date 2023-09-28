@@ -3,7 +3,7 @@ import 'package:accounting/core/utils/responsive.dart';
 import 'package:accounting/core/utils/strings_manager.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../core/shared/widgets/card.dart';
+import '../../../../../../core/shared/widgets/card.dart';
 
 class GridViewWidgetAccounts extends StatelessWidget {
   const GridViewWidgetAccounts({Key? key}) : super(key: key);
@@ -52,7 +52,6 @@ class GridViewWidgetAccounts extends StatelessWidget {
                   },
                   child: const SelectCard(
                     icon: Icons.money,
-
                     imageOr: false,
                     title: AppStrings.costCentres,
                   )),
@@ -86,7 +85,6 @@ class GridViewWidgetAccounts extends StatelessWidget {
                     imageOr: false,
                     title: AppStrings.spendingMoney,
                   )),
-
             ],
           ),
         ),
