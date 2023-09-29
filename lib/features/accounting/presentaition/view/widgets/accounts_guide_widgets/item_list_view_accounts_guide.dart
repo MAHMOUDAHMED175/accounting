@@ -14,19 +14,22 @@ Widget itemListViewAccountsGuide(
         required index}) =>
     InkWell(
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) => listViewScreenAccounts(
-                  listOfAccounts: AccountsCubit.get(context)
-                      .accountModel!
-                      .values!
-                      .where(
-                        (item) =>
-                            accountValueModel.idInteger! == item.parentId!,
-                      )
-                      .toList())),
-        );
+        if (accountValueModel.haveSub == true) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => listViewScreenAccounts(
+                    listOfAccounts: AccountsCubit.get(context)
+                        .accountModel!
+                        .values!
+                        .where(
+                          (item) =>
+                              accountValueModel.idInteger! == item.parentId!,
+                        )
+                        .toList(),
+                    context: context)),
+          );
+        }
       },
       hoverColor: ColorManager.primary,
       child: Padding(

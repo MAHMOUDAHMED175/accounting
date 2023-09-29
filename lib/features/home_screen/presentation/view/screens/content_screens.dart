@@ -28,7 +28,6 @@ class ContentGridViewScreens extends StatelessWidget {
                 if (Responsive.isDesktop(context))
                   if (HomeScreenCubit.get(context).openSide) sideMenu(context),
                 Expanded(
-                  key: scaffoldKey,
                   child: Column(
                     children: [
                       const HeaderHomeScreen(),
@@ -65,6 +64,7 @@ class ContentGridViewScreens extends StatelessWidget {
                         //   }
                         // },
                         child: Expanded(
+                          key: scaffoldKey,
                           child: Navigator(
                             key: navigatorKey,
                             onGenerateRoute: RouteGenerator.getRoute,

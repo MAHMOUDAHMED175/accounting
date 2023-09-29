@@ -63,6 +63,7 @@ class _ContentAddAccountDialogState extends State<ContentAddAccountDialog> {
                       IconButton(
                           onPressed: () {
                             // overlayEntry?.remove();
+                            Navigator.of(context).pop();
                           },
                           icon: Icon(
                             Icons.cancel_outlined,
