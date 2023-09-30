@@ -98,39 +98,40 @@ Widget itemListViewAccountsGuide(
               ),
               itemBuilder: (BuildContext context) {
                 return <PopupMenuEntry<String>>[
-                  PopupMenuItem<String>(
-                    child: ListTile(
-                      leading: Icon(
-                        Icons.edit,
-                        color: ColorManager.blue,
+                  if (accountValueModel.haveSub == true)
+                    PopupMenuItem<String>(
+                      child: ListTile(
+                        leading: Icon(
+                          Icons.edit,
+                          color: ColorManager.blue,
+                        ),
+                        title: const Text('تعديل'),
                       ),
-                      title: const Text('تعديل'),
+                      onTap: () {
+                        // showOverlay(
+                        //   context: context,
+                        //   keyWidget: scaffoldKey,
+                        //   widget: editAccountDialog(context),
+                        // );
+                      },
                     ),
-                    onTap: () {
-                      // showOverlay(
-                      //   context: context,
-                      //   keyWidget: scaffoldKey,
-                      //   widget: editAccountDialog(context),
-                      // );
-                    },
-                  ),
-                  //if this sub
-                  PopupMenuItem<String>(
-                    child: ListTile(
-                      leading: Icon(
-                        Icons.delete,
-                        color: ColorManager.red,
+                  if (accountValueModel.haveSub == false)
+                    PopupMenuItem<String>(
+                      child: ListTile(
+                        leading: Icon(
+                          Icons.delete,
+                          color: ColorManager.red,
+                        ),
+                        title: const Text('حذف'),
                       ),
-                      title: const Text('حذف'),
+                      onTap: () {
+                        if (accountValueModel.haveSub == false) {
+                          AccountsCubit.get(context).deleteAccountsTree(
+                              idAccount: accountValueModel.idInteger!,
+                              context: context);
+                        }
+                      },
                     ),
-                    onTap: () {
-                      // showOverlay(
-                      //   context: context,
-                      //   keyWidget: scaffoldKey,
-                      //   widget: deleteAccountDialog(context),
-                      // );
-                    },
-                  ),
                 ];
               },
             ),

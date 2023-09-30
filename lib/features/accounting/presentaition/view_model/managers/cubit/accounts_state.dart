@@ -26,3 +26,21 @@ class PostAccountsTreeErrorState extends AccountsState {
 
   PostAccountsTreeErrorState(this.error);
 }
+
+///api
+class DeleteAccountsTreeLoadingState extends AccountsState {}
+
+class DeleteAccountsTreeSuccessState extends AccountsState {}
+
+class DeleteAccountsTreeErrorState extends AccountsState {
+  final String error;
+
+  DeleteAccountsTreeErrorState(this.error);
+}
+
+///DropdownMenuItem
+class ValueTypeAccountDropdownState extends AccountsState {}
+
+class ValueMainAccountDropdownState extends AccountsState {}
+
+class SelectedOptionState extends AccountsState {}

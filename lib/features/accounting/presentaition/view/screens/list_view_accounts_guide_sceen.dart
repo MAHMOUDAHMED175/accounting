@@ -1,4 +1,5 @@
 import 'package:accounting/core/shared/widgets/defaulte_widget_button.dart';
+import 'package:accounting/core/shared/widgets/flutter_toast.dart';
 import 'package:accounting/core/utils/color_manager.dart';
 import 'package:accounting/core/utils/font_manager.dart';
 import 'package:accounting/core/utils/styles_manager.dart';
@@ -41,7 +42,13 @@ class ListViewAccountsGuideScreen extends StatelessWidget {
                   return MaterialPageRoute(
                       builder: (context) =>
                           BlocConsumer<AccountsCubit, AccountsState>(
-                            listener: (context, state) {},
+                            listener: (context, state) {
+                              if (state is DeleteAccountsTreeErrorState) {
+                                showToast(
+                                    text: state.error,
+                                    state: ToastStates.ERROR);
+                              }
+                            },
                             builder: (context, state) {
                               return ConditionalBuilder(
                                   condition:
@@ -113,10 +120,10 @@ class ListViewAccountsGuideScreen extends StatelessWidget {
                 alignment: Alignment.bottomRight,
                 child: Container(
                   margin: const EdgeInsets.only(
-                    right: 300.0,
-                    top: 100,
-                    bottom: 20,
-                    left: 20,
+                    right: AppSize.s400,
+                    top: AppSize.s50,
+                    bottom: AppSize.s20,
+                    left: AppSize.s20,
                   ), // تعيين المسافة من اليسار
                   child: Dialog(
                     child: ContentAddAccountDialog(),
@@ -126,13 +133,6 @@ class ListViewAccountsGuideScreen extends StatelessWidget {
             );
           },
         );
-
-        //
-        // Overlay(
-        //   keyWidget: ContentGridViewScreens.scaffoldKey,
-        //   overlayContext: context,
-        //   widget: AddAccountDialog(),
-        // );
       },
       valueBorder: 0,
     );
