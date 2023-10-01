@@ -2,12 +2,17 @@ import 'package:accounting/core/shared/widgets/custom_text_button.dart';
 import 'package:accounting/core/utils/color_manager.dart';
 import 'package:accounting/core/utils/font_manager.dart';
 import 'package:accounting/core/utils/styles_manager.dart';
+import 'package:accounting/features/accounting/data/accounts_model/values.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../../../core/utils/values_manager.dart';
+import '../../../../view_model/managers/cubit/accounts_cubit.dart';
 
 class ContentDeleteAccountDialog extends StatelessWidget {
-  // هذا المتغير سيحتوي على القيمة المختارة (دائن أو مدين)
+  const ContentDeleteAccountDialog(
+      {super.key, required this.accountValueModel});
+
+  final AccountModelValues accountValueModel;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -33,7 +38,7 @@ class ContentDeleteAccountDialog extends StatelessWidget {
                       const Spacer(),
                       IconButton(
                           onPressed: () {
-                            // overlayEntry?.remove();
+                            Navigator.pop(context);
                           },
                           icon: Icon(
                             Icons.cancel_outlined,
@@ -55,7 +60,7 @@ class ContentDeleteAccountDialog extends StatelessWidget {
                 height: AppSize.s14,
               ),
               Text(
-                'Are you sure you want to delete the follwing accounts?',
+                'Are you sure you want to delete the following accounts?',
                 style: getLightStyle(
                     color: ColorManager.black, fontSize: FontSize.s16),
               ),
@@ -67,7 +72,7 @@ class ContentDeleteAccountDialog extends StatelessWidget {
                 child: CustomTextButton(
                   width: AppSize.s100,
                   backgroundColor: ColorManager.white,
-                  text: "اسم الحساب اللى هيتمسح",
+                  text: "${accountValueModel.arabicName}",
                   textColor: ColorManager.black,
                   heightButton: AppSize.s40,
                   onPressed: () {},
@@ -88,7 +93,11 @@ class ContentDeleteAccountDialog extends StatelessWidget {
                       text: "نعم",
                       textColor: ColorManager.white,
                       heightButton: AppSize.s40,
-                      onPressed: () {},
+                      onPressed: () {
+                        AccountsCubit.get(context).deleteAccountsTree(
+                            idAccount: accountValueModel.idInteger!,
+                            context: context);
+                      },
                       fontSize: FontSize.s16,
                       valueDoubleBorderRadius: 0,
                     ),
@@ -101,7 +110,9 @@ class ContentDeleteAccountDialog extends StatelessWidget {
                       text: "لا",
                       textColor: ColorManager.white,
                       heightButton: AppSize.s40,
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
                       fontSize: FontSize.s16,
                       valueDoubleBorderRadius: 0,
                     ),

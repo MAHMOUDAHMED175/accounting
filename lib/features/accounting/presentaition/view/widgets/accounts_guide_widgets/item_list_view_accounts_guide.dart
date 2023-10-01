@@ -3,6 +3,7 @@ import 'package:accounting/core/utils/font_manager.dart';
 import 'package:accounting/core/utils/styles_manager.dart';
 import 'package:accounting/features/accounting/data/accounts_model/values.dart';
 import 'package:accounting/features/accounting/presentaition/view/screens/list_view_accounts_guide_sceen.dart';
+import 'package:accounting/features/accounting/presentaition/view/widgets/accounts_guide_widgets/delete_account/content_delete_account_dialog.dart';
 import 'package:accounting/features/accounting/presentaition/view_model/managers/cubit/accounts_cubit.dart';
 import 'package:flutter/material.dart';
 
@@ -98,23 +99,22 @@ Widget itemListViewAccountsGuide(
               ),
               itemBuilder: (BuildContext context) {
                 return <PopupMenuEntry<String>>[
-                  if (accountValueModel.haveSub == true)
-                    PopupMenuItem<String>(
-                      child: ListTile(
-                        leading: Icon(
-                          Icons.edit,
-                          color: ColorManager.blue,
-                        ),
-                        title: const Text('تعديل'),
+                  PopupMenuItem<String>(
+                    child: ListTile(
+                      leading: Icon(
+                        Icons.edit,
+                        color: ColorManager.blue,
                       ),
-                      onTap: () {
-                        // showOverlay(
-                        //   context: context,
-                        //   keyWidget: scaffoldKey,
-                        //   widget: editAccountDialog(context),
-                        // );
-                      },
+                      title: const Text('تعديل'),
                     ),
+                    onTap: () {
+                      // showOverlay(
+                      //   context: context,
+                      //   keyWidget: scaffoldKey,
+                      //   widget: editAccountDialog(context),
+                      // );
+                    },
+                  ),
                   if (accountValueModel.haveSub == false)
                     PopupMenuItem<String>(
                       child: ListTile(
@@ -126,9 +126,33 @@ Widget itemListViewAccountsGuide(
                       ),
                       onTap: () {
                         if (accountValueModel.haveSub == false) {
-                          AccountsCubit.get(context).deleteAccountsTree(
-                              idAccount: accountValueModel.idInteger!,
-                              context: context);
+                          showDialog(
+                            context: context,
+                            builder: (context) {
+                              return WillPopScope(
+                                onWillPop: () async {
+                                  // يمنع غلق الحوار عن طريق الضغط على الزرار "رجوع" في الجهاز
+                                  return false;
+                                },
+                                child: Align(
+                                  alignment: Alignment.bottomRight,
+                                  child: Container(
+                                    margin: const EdgeInsets.only(
+                                      right: AppSize.s400,
+                                      top: AppSize.s50,
+                                      bottom: AppSize.s20,
+                                      left: AppSize.s20,
+                                    ),
+                                    child: Dialog(
+                                      child: ContentDeleteAccountDialog(
+                                        accountValueModel: accountValueModel,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              );
+                            },
+                          );
                         }
                       },
                     ),

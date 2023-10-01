@@ -48,6 +48,12 @@ class ListViewAccountsGuideScreen extends StatelessWidget {
                                     text: state.error,
                                     state: ToastStates.ERROR);
                               }
+                              if (state is DeleteAccountsTreeSuccessState) {
+                                showToast(
+                                    text: "تم حذف الحساب بنجاح",
+                                    state: ToastStates.ERROR);
+                                Navigator.pop(context);
+                              }
                             },
                             builder: (context, state) {
                               return ConditionalBuilder(
