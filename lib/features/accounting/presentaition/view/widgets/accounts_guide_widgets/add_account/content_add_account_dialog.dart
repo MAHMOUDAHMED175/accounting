@@ -26,13 +26,16 @@ class ContentAddAccountDialog extends StatelessWidget {
   TextEditingController accountCodeController = TextEditingController();
 
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     var cubitAccount = AccountsCubit.get(context);
 
     return BlocConsumer<AccountsCubit, AccountsState>(
       listener: (context, state) {
-        showToast(text: "مبروك مبروك مبروك", state: ToastStates.SUCCECC);
+        if (state is PostAccountsTreeErrorState) {
+          showToast(text: "مبروك مبروك مبروك", state: ToastStates.SUCCECC);
+        }
       },
       builder: (context, state) {
         return Form(
@@ -278,7 +281,19 @@ class ContentAddAccountDialog extends StatelessWidget {
                         textColor: ColorManager.white,
                         heightButton: AppSize.s40,
                         onPressed: () {
-                          if (formKey.currentState!.validate()) {}
+                          cubitAccount.postAccountTree(
+                              parentId: 1,
+                              accountLevel: 2,
+                              englishName: "englishName",
+                              arabicName: "arabicName",
+                              description: "description",
+                              haveSub: true,
+                              accountTypeId: 1,
+                              accountCloseTypeId: 1,
+                              accountGroupId: 1,
+                              cashFlowTypeId: 1);
+
+                          // if (formKey.currentState!.validate()) {}
                         },
                         fontSize: FontSize.s20,
                         valueDoubleBorderRadius: 0,

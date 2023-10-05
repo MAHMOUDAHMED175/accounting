@@ -38,6 +38,17 @@ class DeleteAccountsTreeErrorState extends AccountsState {
   DeleteAccountsTreeErrorState(this.error);
 }
 
+///api
+class PutAccountsTreeLoadingState extends AccountsState {}
+
+class PutAccountsTreeSuccessState extends AccountsState {}
+
+class PutAccountsTreeErrorState extends AccountsState {
+  final String error;
+
+  PutAccountsTreeErrorState(this.error);
+}
+
 ///DropdownMenuItem
 class ValueTypeAccountDropdownState extends AccountsState {}
 

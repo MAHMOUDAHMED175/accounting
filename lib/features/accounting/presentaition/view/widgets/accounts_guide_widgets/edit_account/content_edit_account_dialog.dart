@@ -6,16 +6,16 @@ import 'package:accounting/core/utils/responsive.dart';
 import 'package:accounting/core/utils/styles_manager.dart';
 import 'package:accounting/core/utils/values_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ContentEditAccountDialog extends StatefulWidget {
-  const ContentEditAccountDialog({super.key});
+import '../../../../../../../core/shared/widgets/dropdown_menu_item_button.dart';
+import '../../../../../../../core/shared/widgets/flutter_toast.dart';
+import '../../../../view_model/managers/cubit/accounts_cubit.dart';
+import '../../../../view_model/managers/cubit/accounts_state.dart';
 
-  @override
-  State<ContentEditAccountDialog> createState() =>
-      _ContentEditAccountDialogState();
-}
+class ContentEditAccountDialog extends StatelessWidget {
+  ContentEditAccountDialog({super.key});
 
-class _ContentEditAccountDialogState extends State<ContentEditAccountDialog> {
   TextEditingController accountNameArabicController = TextEditingController();
 
   TextEditingController accountNameEnglishController = TextEditingController();
@@ -24,23 +24,21 @@ class _ContentEditAccountDialogState extends State<ContentEditAccountDialog> {
 
   TextEditingController accountCodeController = TextEditingController();
 
-  List<String> listMainAccountDropDown = ["من فضلك اختر", "ارباح", "ديون"];
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  String? valueMainAccountDropDown = "من فضلك اختر";
-
-  String selectedOption = '';
-  // هذا المتغير سيحتوي على القيمة المختارة (دائن أو مدين)
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Container(
-        decoration: BoxDecoration(
-          border: Border.all(
-            color: ColorManager.grey, // Border color
-            width: 0.4, // Border width
-          ),
-        ),
-        child: SingleChildScrollView(
+    var cubitAccount = AccountsCubit.get(context);
+
+    return BlocConsumer<AccountsCubit, AccountsState>(
+      listener: (context, state) {
+        if (state is PutAccountsTreeSuccessState) {
+          showToast(text: "تم تعديل الحساب", state: ToastStates.SUCCECC);
+        }
+      },
+      builder: (context, state) {
+        return Form(
+          key: formKey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -51,7 +49,7 @@ class _ContentEditAccountDialogState extends State<ContentEditAccountDialog> {
                   color: ColorManager.white,
                 ),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Container(
@@ -66,6 +64,7 @@ class _ContentEditAccountDialogState extends State<ContentEditAccountDialog> {
                             IconButton(
                                 onPressed: () {
                                   // overlayEntry?.remove();
+                                  Navigator.of(context).pop();
                                 },
                                 icon: Icon(
                                   Icons.cancel_outlined,
@@ -84,15 +83,85 @@ class _ContentEditAccountDialogState extends State<ContentEditAccountDialog> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
+                                const Text("نوع الحساب"),
+                                const SizedBox(
+                                  height: AppSize.s8,
+                                ),
+                                Container(
+                                  height: AppSize.s36,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(5),
+                                    border: Border.all(
+                                      color: ColorManager.grey,
+                                    ),
+                                  ),
+                                  child: defaultDropdownMenuItemButton(
+                                      value: cubitAccount
+                                          .valueTypeAccountDropDown!,
+                                      list:
+                                          cubitAccount.listTypeAccountDropDown,
+                                      textStyle: getLightStyle(
+                                          fontSize: FontSize.s12,
+                                          color: ColorManager.black),
+                                      onChanged: (value) {
+                                        cubitAccount
+                                            .changeDropdownMenuItemValueTypeAccount(
+                                                value.toString());
+                                      },
+                                      iconSize: AppSize.s20),
+                                ),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(
+                            width: AppSize.s12,
+                          ),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text("كود"),
+                                const SizedBox(
+                                  height: AppSize.s8,
+                                ),
+                                SizedBox(
+                                  height: AppSize.s60,
+                                  child: defaultFormField(
+                                      readOnly: true,
+                                      fillsColor: ColorManager.grey300,
+                                      controller: accountCodeController,
+                                      type: TextInputType.text),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(AppPadding.p8),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
                                 const Text("الاسم بالعربى"),
                                 const SizedBox(
                                   height: AppSize.s8,
                                 ),
                                 SizedBox(
-                                  height: 35,
+                                  height: AppSize.s60,
                                   child: defaultFormField(
                                       controller: accountNameArabicController,
-                                      type: TextInputType.text),
+                                      type: TextInputType.text,
+                                      validate: (value) {
+                                        if (value!.isEmpty) {
+                                          return "ضيف اسم الحساب باللغه العربيه";
+                                        }
+                                        return null;
+                                      }),
                                 ),
                               ],
                             ),
@@ -109,11 +178,16 @@ class _ContentEditAccountDialogState extends State<ContentEditAccountDialog> {
                                   height: AppSize.s8,
                                 ),
                                 SizedBox(
-                                  height: 35,
+                                  height: AppSize.s60,
                                   child: defaultFormField(
-                                      readOnly: true,
-                                      controller: accountCodeController,
-                                      type: TextInputType.text),
+                                    controller: accountNameEnglishController,
+                                    type: TextInputType.text,
+                                    validate: (value) {
+                                      if (value!.isEmpty) {
+                                        return "ضيف اسم الحساب باللغه الانجليزيه";
+                                      }
+                                    },
+                                  ),
                                 ),
                               ],
                             ),
@@ -143,67 +217,24 @@ class _ContentEditAccountDialogState extends State<ContentEditAccountDialog> {
                                       color: ColorManager.grey,
                                     ),
                                   ),
-                                  child: DropdownButton(
-                                    elevation: 8,
-                                    isExpanded: true,
-                                    underline: Container(),
-                                    focusColor: Colors.transparent,
-                                    iconSize: AppSize.s20,
-                                    padding: const EdgeInsets.all(8),
-                                    value: valueMainAccountDropDown,
-                                    items:
-                                        listMainAccountDropDown.map((option2) {
-                                      return DropdownMenuItem(
-                                        value: option2,
-                                        child: Text(
-                                          option2,
-                                          style: getLightStyle(
-                                              fontSize: FontSize.s12,
-                                              color: ColorManager.black),
-                                        ),
-                                      );
-                                    }).toList(),
-                                    onChanged: (value) {
-                                      setState(() {
-                                        valueMainAccountDropDown =
-                                            value.toString();
-                                      });
-                                    },
-                                  ),
+                                  child: defaultDropdownMenuItemButton(
+                                      value: cubitAccount
+                                          .valueMainAccountDropDown!,
+                                      list:
+                                          cubitAccount.listMainAccountDropDown,
+                                      textStyle: getLightStyle(
+                                          fontSize: FontSize.s12,
+                                          color: ColorManager.black),
+                                      onChanged: (value) {
+                                        cubitAccount
+                                            .changeDropdownMenuItemValueMainAccount(
+                                                value.toString());
+                                      },
+                                      iconSize: AppSize.s20),
                                 ),
                               ],
                             ),
                           ),
-                          const SizedBox(
-                            width: AppSize.s12,
-                          ),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Text("كود"),
-                                const SizedBox(
-                                  height: AppSize.s8,
-                                ),
-                                SizedBox(
-                                  height: 35,
-                                  child: defaultFormField(
-                                      readOnly: true,
-                                      fillsColor: ColorManager.grey300,
-                                      controller: accountCodeController,
-                                      type: TextInputType.text),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(AppPadding.p8),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
                           const SizedBox(
                             width: AppSize.s12,
                           ),
@@ -212,11 +243,10 @@ class _ContentEditAccountDialogState extends State<ContentEditAccountDialog> {
                             child: RadioListTile(
                               title: const Text('دائن'),
                               value: 'دائن',
-                              groupValue: selectedOption,
+                              groupValue: cubitAccount.selectedOption,
                               onChanged: (value) {
-                                setState(() {
-                                  selectedOption = value.toString();
-                                });
+                                cubitAccount
+                                    .selectedOptionRadio(value.toString());
                               },
                             ),
                           ),
@@ -225,59 +255,44 @@ class _ContentEditAccountDialogState extends State<ContentEditAccountDialog> {
                             child: RadioListTile(
                               title: const Text('مدين'),
                               value: 'مدين',
-                              groupValue: selectedOption,
+                              groupValue: cubitAccount.selectedOption,
                               contentPadding: EdgeInsets.zero,
                               onChanged: (value) {
-                                setState(() {
-                                  selectedOption = value.toString();
-                                });
+                                cubitAccount
+                                    .selectedOptionRadio(value.toString());
                               },
                             ),
                           ),
                         ],
                       ),
                     ),
-                    if (Responsive.isDesktop(context) ||
-                        Responsive.isTablet(context))
-                      Padding(
-                        padding: const EdgeInsets.all(AppPadding.p8),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            const Spacer(),
-                            CustomTextButton(
-                              backgroundColor: ColorManager.green,
-                              text: "حفظ",
-                              textColor: ColorManager.white,
-                              heightButton: AppSize.s40,
-                              onPressed: () {},
-                              fontSize: FontSize.s20,
-                              valueDoubleBorderRadius: 0,
-                            ),
-                          ],
-                        ),
+                    //bad code need to refactor
+
+                    Padding(
+                      padding: const EdgeInsets.all(AppPadding.p8),
+                      child: CustomTextButton(
+                        width: (Responsive.isDesktop(context) ||
+                                Responsive.isTablet(context))
+                            ? AppSize.s120
+                            : double.infinity,
+                        backgroundColor: ColorManager.green,
+                        text: "حفظ",
+                        textColor: ColorManager.white,
+                        heightButton: AppSize.s40,
+                        onPressed: () {
+                          if (formKey.currentState!.validate()) {}
+                        },
+                        fontSize: FontSize.s20,
+                        valueDoubleBorderRadius: 0,
                       ),
-                    if (Responsive.isMobile(context))
-                      Padding(
-                        padding: const EdgeInsets.all(AppPadding.p8),
-                        child: CustomTextButton(
-                          width: double.infinity,
-                          backgroundColor: ColorManager.green,
-                          text: "حفظ",
-                          textColor: ColorManager.white,
-                          heightButton: AppSize.s40,
-                          onPressed: () {},
-                          fontSize: FontSize.s20,
-                          valueDoubleBorderRadius: 0,
-                        ),
-                      ),
+                    ),
                   ],
                 ),
               )
             ],
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }

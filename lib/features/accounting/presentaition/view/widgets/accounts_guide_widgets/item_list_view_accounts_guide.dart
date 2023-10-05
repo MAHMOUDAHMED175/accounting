@@ -4,6 +4,7 @@ import 'package:accounting/core/utils/styles_manager.dart';
 import 'package:accounting/features/accounting/data/accounts_model/values.dart';
 import 'package:accounting/features/accounting/presentaition/view/screens/list_view_accounts_guide_sceen.dart';
 import 'package:accounting/features/accounting/presentaition/view/widgets/accounts_guide_widgets/delete_account/content_delete_account_dialog.dart';
+import 'package:accounting/features/accounting/presentaition/view/widgets/accounts_guide_widgets/edit_account/content_edit_account_dialog.dart';
 import 'package:accounting/features/accounting/presentaition/view_model/managers/cubit/accounts_cubit.dart';
 import 'package:flutter/material.dart';
 
@@ -108,11 +109,40 @@ Widget itemListViewAccountsGuide(
                       title: const Text('تعديل'),
                     ),
                     onTap: () {
-                      // showOverlay(
-                      //   context: context,
-                      //   keyWidget: scaffoldKey,
-                      //   widget: editAccountDialog(context),
-                      // );
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return WillPopScope(
+                            onWillPop: () async {
+                              // يمنع غلق الحوار عن طريق الضغط على الزرار "رجوع" في الجهاز
+                              return false;
+                            },
+                            child: Align(
+                              alignment: Alignment.bottomRight,
+                              child: Container(
+                                margin: const EdgeInsets.only(
+                                  right: AppSize.s400,
+                                  top: AppSize.s50,
+                                  bottom: AppSize.s20,
+                                  left: AppSize.s20,
+                                ),
+                                child: Dialog(
+                                  child: ContentEditAccountDialog(),
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                      );
+                      //  AccountsCubit.get(context).putAccountTree(
+                      //                           idPutData: accountValueModel.idInteger!,
+                      //                           mainOrSub: accountValueModel.accountTypeId!,
+                      //                           mainAccountForThisAccount: accountValueModel.parentId!,
+                      //                           englishName: ,
+                      //                           arabicName: arabicName,
+                      //                           description: description,
+                      //                           haveSub: haveSub,
+                      //                           accountLevelCode: accountLevelCode)
                     },
                   ),
                   if (accountValueModel.haveSub == false)

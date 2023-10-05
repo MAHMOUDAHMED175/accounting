@@ -1,4 +1,5 @@
 import 'package:accounting/core/utils/color_manager.dart';
+import 'package:accounting/features/accounting/data/accounts_model/values.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fancy_tree_view/flutter_fancy_tree_view.dart';
 
@@ -7,7 +8,7 @@ import '../../../view_model/managers/cubit/accounts_cubit.dart';
 class MyNode {
   const MyNode({
     required this.title,
-    this.children = const <MyNode>[],
+    required this.children,
   });
 
   final String title;
@@ -15,42 +16,29 @@ class MyNode {
 }
 
 class MyTreeViewDataConverter {
+  static List<MyNode> convertListToMyNodes(List<AccountModelValuesTrees> list) {
+    return list.map((item) => convertAccountsToMyNode(item, list)).toList();
+  }
+
   static MyNode convertAccountsToMyNode(
       AccountModelValuesTrees accountValueModel,
       List<AccountModelValuesTrees> allAccounts) {
     final children = allAccounts
-        .where((item) => accountValueModel.idInteger == item.parentId)
+        .where(
+          (item) =>
+              accountValueModel.idInteger == item.parentId
+              // &&  accountValueModel.accountlevel == 1
+              &&
+              accountValueModel.haveSub == true,
+        )
         .map((child) => convertAccountsToMyNode(child, allAccounts))
         .toList();
-
     return MyNode(
       title: accountValueModel.arabicName,
       children: children,
     );
   }
-
-  static List<MyNode> convertListToMyNodes(List<AccountModelValuesTrees> list) {
-    return list.map((item) => convertAccountsToMyNode(item, list)).toList();
-  }
 }
-
-// class MyTreeViewDataConverter {
-//   static MyNode convertAccountsToMyNode(
-//       AccountModelValuesTrees accountValueModel) {
-//     final children = accountValueModel.children
-//         .map((child) => convertAccountsToMyNode(child))
-//         .toList();
-//
-//     return MyNode(
-//       title: accountValueModel.arabicName,
-//       children: children,
-//     );
-//   }
-//
-//   static List<MyNode> convertListToMyNodes(List<AccountModelValuesTrees> list) {
-//     return list.map((item) => convertAccountsToMyNode(item)).toList();
-//   }
-// }
 
 class MyTreeView extends StatefulWidget {
   final List<MyNode> roots;
@@ -140,33 +128,40 @@ class AccountModelValuesTrees {
   final String arabicName;
   final int idInteger;
   final int parentId;
+  final int accountlevel;
+  final bool haveSub;
   final List<AccountModelValuesTrees> children;
 
-  AccountModelValuesTrees(
-      {required this.idInteger,
-      required this.parentId,
-      required this.arabicName,
-      required this.children});
+  AccountModelValuesTrees({
+    required this.idInteger,
+    required this.parentId,
+    required this.accountlevel,
+    required this.arabicName,
+    required this.children,
+    required this.haveSub,
+  });
 }
 
 class MyAppss extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final listOfAccounts = AccountsCubit.get(context).accountModel == null
-        ? []
-        : AccountsCubit.get(context)
-            .accountModel!
-            .values!
-            .where((item) => item.accountLevel == 2)
-            .toList();
+    final List<AccountModelValues> listOfAccounts =
+        AccountsCubit.get(context).accountModel == null
+            ? []
+            : AccountsCubit.get(context)
+                .accountModel!
+                .values!
+                // .where((item) => item.accountLevel == 2)
+                .toList();
+
     List<AccountModelValuesTrees> listOfTrees = listOfAccounts.map((account) {
       return AccountModelValuesTrees(
         arabicName: account.arabicName!,
-
         children: [],
         idInteger: account.idInteger!,
-        parentId: account
-            .parentId!, // يمكنك تعيين القائمة الفرعية هنا إذا كان لديك بيانات فرعية لكل حساب
+        parentId: account.parentId!,
+        haveSub: account.haveSub!,
+        accountlevel: account.accountLevel!,
       );
     }).toList();
 
